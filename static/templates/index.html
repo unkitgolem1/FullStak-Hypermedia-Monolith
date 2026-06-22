@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="wrapper" class="flex flex-col items-center justify-center min-h-[400px]">
+    
+    <!-- Botón de Despertar -->
+    <button 
+        hx-get="/api/obtener-documentos" 
+        hx-target="#contenedor-cartas" 
+        hx-swap="innerHTML"
+        onclick="this.style.display='none'; document.getElementById('instruccion').style.display='none';"
+        class="px-8 py-4 bg-blue-900/50 border border-blue-500 rounded-full font-black uppercase tracking-[0.2em] animate-pulse hover:bg-blue-600 transition-all">
+        DESPERTAR
+    </button>
+
+    <p id="instruccion" class="mt-6 text-slate-400 text-xs italic animate-bounce">
+        Haz click para consultar la base de datos
+    </p>
+
+    <!-- Contenedor dinámico -->
+    <div id="contenedor-cartas" class="mt-12 flex flex-wrap justify-center gap-6">
+        <!-- El contenido vendrá del servidor -->
+    </div>
+</div>
+{% endblock %}
