@@ -37,8 +37,10 @@ async def obtener_documentos(
 ):
     # traer el dato de la db
     documentos = await db.obtener_todos_documentos()  # Traer los datos de la db
+    if not documentos: 
+        print(f"Documentos obtenidos: {documentos}")
     return templates.TemplateResponse(
         request=request,
-        name="nombre_fragmento.html",
+        name="documentos_fragmento.html",
         context={"documentos": documentos},
     )

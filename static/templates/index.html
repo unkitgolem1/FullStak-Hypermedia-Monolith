@@ -1,25 +1,44 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div id="wrapper" class="flex flex-col items-center justify-center min-h-[400px]">
-    
-    <!-- Botón de Despertar -->
-    <button 
-        hx-get="/api/obtener-documentos" 
-        hx-target="#contenedor-cartas" 
-        hx-swap="innerHTML"
-        onclick="this.style.display='none'; document.getElementById('instruccion').style.display='none';"
-        class="px-8 py-4 bg-blue-900/50 border border-blue-500 rounded-full font-black uppercase tracking-[0.2em] animate-pulse hover:bg-blue-600 transition-all">
-        DESPERTAR
-    </button>
+<div class="mx-auto mb-8 w-full max-w-5xl p-4 md:p-6 rounded-2xl relative" aria-hidden="true">
+    <div class="glass-neumo relative rounded-2xl overflow-hidden min-h-[450px] flex flex-col">
+        <div class="absolute inset-0 bg-gradient-to-br from-white/6 via-white/2 to-transparent pointer-events-none"></div>
 
-    <p id="instruccion" class="mt-6 text-slate-400 text-xs italic animate-bounce">
-        Haz click para consultar la base de datos
-    </p>
+        <div class="relative p-6 md:p-8 border-b border-white/10 flex flex-col items-center text-center">
+            <h2 class="text-xl md:text-2xl font-bold text-white/95 mb-2 font-mono tracking-tight">
+                Infraestructura de Datos / Repositorio Local
+            </h2>
+            <p class="text-xs md:text-sm text-slate-300/85 max-w-2xl leading-relaxed">
+                Aplicación full-stack diseñada y programada de extremo a extremo. Haz una petición en tiempo real a mi base de datos remota para consultar e inyectar dinámicamente el catálogo de proyectos de forma asíncrona.
+            </p>
+        </div>
 
-    <!-- Contenedor dinámico -->
-    <div id="contenedor-cartas" class="mt-12 flex flex-wrap justify-center gap-6">
-        <!-- El contenido vendrá del servidor -->
+        <div id="wrapper" class="relative flex-grow flex flex-col items-center justify-center p-6 md:p-8">
+            
+            <button 
+                hx-get="/api/obtener-documentos" 
+                hx-target="#contenedor-cartas" 
+                hx-swap="innerHTML"
+                onclick="this.style.display='none'; document.getElementById('instruccion').style.display='none';"
+                class="px-8 py-4 border border-red-500/50 rounded-full font-black uppercase tracking-[0.2em] animate-pulse transition-all duration-300 
+                bg-red-950/30 
+                hover:bg-red-600 hover:shadow-[0_0_20px_rgba(220,38,38,0.5)] 
+                shadow-[2px_2px_5px_rgba(0,0,0,0.3),-1px_-1px_3px_rgba(255,255,255,0.1)] 
+                text-red-100 text-xs md:text-sm tracking-widest">
+                CONSULTAR BASE DE DATOS
+            </button>
+
+
+
+            <p id="instruccion" class="mt-6 text-slate-400 font-mono text-[11px] tracking-wider animate-bounce text-center">
+                &gt; Ejecutar query asíncrona mediante HTMX
+            </p>
+
+            <div id="contenedor-cartas" class="w-full flex flex-wrap justify-center gap-6 mt-6">
+                </div>
+            
+        </div>
     </div>
 </div>
 {% endblock %}
