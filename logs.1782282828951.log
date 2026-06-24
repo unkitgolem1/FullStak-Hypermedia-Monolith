@@ -1,0 +1,903 @@
+2026-06-24T06:30:53.706190192Z [inf]  Starting Container
+2026-06-24T06:30:54.245941827Z [inf]  
+2026-06-24T06:30:54.245949436Z [inf]     FastAPI   Starting production server 🚀
+2026-06-24T06:30:54.245954876Z [inf]   
+2026-06-24T06:30:54.245959505Z [inf]               Searching for package file structure from directories with         
+2026-06-24T06:30:54.245963772Z [inf]               __init__.py files                                                  
+2026-06-24T06:30:54.245968193Z [inf]  ERROR    Import error: No module named 'routes'                                 
+2026-06-24T06:30:54.245972456Z [inf]  WARNING  Ensure all the package directories have an __init__.py file            
+2026-06-24T06:30:54.245977014Z [inf]  
+2026-06-24T06:30:54.245981601Z [err]  ╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+2026-06-24T06:30:54.245985691Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:492 in run        │
+2026-06-24T06:30:54.245989699Z [err]  │                                                                              │
+2026-06-24T06:30:54.245994524Z [err]  │   489 │                                                                      │
+2026-06-24T06:30:54.245998461Z [err]  │   490 │   Otherwise, it uses the first [bold]FastAPI[/bold] app found in the │
+2026-06-24T06:30:54.246004297Z [err]  │       imported module or package.                                            │
+2026-06-24T06:30:54.246012088Z [err]  │   491 │   """                                                                │
+2026-06-24T06:30:54.246015389Z [err]  │ ❱ 492 │   _run(                                                              │
+2026-06-24T06:30:54.246018588Z [err]  │   493 │   │   path=path,                                                     │
+2026-06-24T06:30:54.246021984Z [err]  │   494 │   │   host=host,                                                     │
+2026-06-24T06:30:54.247047324Z [err]  │                                                                              │
+2026-06-24T06:30:54.247060185Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:178 in _run       │
+2026-06-24T06:30:54.247068608Z [err]  │                                                                              │
+2026-06-24T06:30:54.247070517Z [err]  │   180 │   │   │   │   import_data = get_import_data_from_import_string(      │
+2026-06-24T06:30:54.247078177Z [err]  │   175 │   │   try:                                                           │
+2026-06-24T06:30:54.247079709Z [err]  │   181 │   │   │   │   │   config.entrypoint, config.from_pyproject           │
+2026-06-24T06:30:54.247085234Z [err]  │   176 │   │   │   # Resolve import data with priority: CLI path/app > config │
+2026-06-24T06:30:54.247087399Z [err]  │                                                                              │
+2026-06-24T06:30:54.247090660Z [err]  │       entrypoint > auto-discovery                                            │
+2026-06-24T06:30:54.247096182Z [err]  │   177 │   │   │   if path or app:                                            │
+2026-06-24T06:30:54.247096773Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:143 in       │
+2026-06-24T06:30:54.247102375Z [err]  │ ❱ 178 │   │   │   │   import_data = get_import_data(path=path, app_name=app) │
+2026-06-24T06:30:54.247104749Z [err]  │ get_import_data                                                              │
+2026-06-24T06:30:54.247109062Z [err]  │   179 │   │   │   elif config.entrypoint:                                    │
+2026-06-24T06:30:54.247109709Z [err]  │   495 │   │   port=port,                                                     │
+2026-06-24T06:30:54.247113305Z [err]  │                                                                              │
+2026-06-24T06:30:54.248481731Z [err]  │ ❱  70 │   │   mod = importlib.import_module(mod_data.module_import_str)      │
+2026-06-24T06:30:54.248486952Z [err]  │                                                                              │
+2026-06-24T06:30:54.248494524Z [err]  │    68 def get_app_name(*, mod_data: ModuleData, app_name: str | None = None) │
+2026-06-24T06:30:54.248496607Z [err]  │    67                                                                        │
+2026-06-24T06:30:54.248498110Z [err]  │   140 │   │   raise FastAPICLIException(f"Path does not exist {path}")       │
+2026-06-24T06:30:54.248500786Z [err]  │       -> str:                                                                │
+2026-06-24T06:30:54.248504719Z [err]  │   144 │                                                                      │
+2026-06-24T06:30:54.248506160Z [err]  │   141 │   mod_data = get_module_data_from_path(path)                         │
+2026-06-24T06:30:54.248507278Z [err]  │    69 │   try:                                                               │
+2026-06-24T06:30:54.248512931Z [err]  │   142 │   sys.path.insert(0, str(mod_data.extra_sys_path))                   │
+2026-06-24T06:30:54.248514587Z [err]  │   145 │   import_string = f"{mod_data.module_import_str}:{use_app_name}"     │
+2026-06-24T06:30:54.248514609Z [err]  │ get_app_name                                                                 │
+2026-06-24T06:30:54.248518127Z [err]  │ ❱ 143 │   use_app_name = get_app_name(mod_data=mod_data, app_name=app_name)  │
+2026-06-24T06:30:54.248520199Z [err]  │   146                                                                        │
+2026-06-24T06:30:54.248524713Z [err]  │                                                                              │
+2026-06-24T06:30:54.248528076Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:70 in        │
+2026-06-24T06:30:54.250137879Z [err]  │    89                                                                        │
+2026-06-24T06:30:54.250145739Z [err]  │    90                                                                        │
+2026-06-24T06:30:54.250150920Z [err]  │    91 _RELOADING = {}                                                        │
+2026-06-24T06:30:54.250154901Z [err]  │ in _gcd_import:1395                                                          │
+2026-06-24T06:30:54.250158474Z [err]  │ in _find_and_load:1360                                                       │
+2026-06-24T06:30:54.250193588Z [err]  │    71 │   except (ImportError, ValueError) as e:                             │
+2026-06-24T06:30:54.250197613Z [err]  │    72 │   │   logger.error(f"Import error: {e}")                             │
+2026-06-24T06:30:54.250201618Z [err]  │    73 │   │   logger.warning(                                                │
+2026-06-24T06:30:54.250205330Z [err]  │                                                                              │
+2026-06-24T06:30:54.250209614Z [err]  │ /mise/installs/python/3.13.13/lib/python3.13/importlib/__init__.py:88 in     │
+2026-06-24T06:30:54.250213176Z [err]  │ import_module                                                                │
+2026-06-24T06:30:54.250218204Z [err]  │                                                                              │
+2026-06-24T06:30:54.250221837Z [err]  │    85 │   │   │   if character != '.':                                       │
+2026-06-24T06:30:54.250225907Z [err]  │    86 │   │   │   │   break                                                  │
+2026-06-24T06:30:54.250230018Z [err]  │    87 │   │   │   level += 1                                                 │
+2026-06-24T06:30:54.250233571Z [err]  │ ❱  88 │   return _bootstrap._gcd_import(name[level:], package, level)        │
+2026-06-24T06:30:54.251665762Z [err]  │    2                                                                         │
+2026-06-24T06:30:54.251671200Z [err]  │    3 from fastapi import FastAPI                                             │
+2026-06-24T06:30:54.251674935Z [err]  │ ❱  4 from routes import router as landing_web                                │
+2026-06-24T06:30:54.251678191Z [err]  │    5 from routes import adaptador_supabase as db                             │
+2026-06-24T06:30:54.251681875Z [err]  │    6                                                                         │
+2026-06-24T06:30:54.251684995Z [err]  │    7                                                                         │
+2026-06-24T06:30:54.251689804Z [err]  │ in _find_and_load_unlocked:1331                                              │
+2026-06-24T06:30:54.251690025Z [err]  ╰──────────────────────────────────────────────────────────────────────────────╯
+2026-06-24T06:30:54.251693259Z [err]  │ in _load_unlocked:935                                                        │
+2026-06-24T06:30:54.251696050Z [err]  │ in exec_module:1023                                                          │
+2026-06-24T06:30:54.251699070Z [err]  │ in _call_with_frames_removed:488                                             │
+2026-06-24T06:30:54.251711404Z [err]  │                                                                              │
+2026-06-24T06:30:54.251714636Z [err]  │ /app/src/main.py:4 in <module>                                               │
+2026-06-24T06:30:54.251717490Z [err]  │                                                                              │
+2026-06-24T06:30:54.251720522Z [err]  │    1 from contextlib import asynccontextmanager                              │
+2026-06-24T06:30:54.253148417Z [err]  ModuleNotFoundError: No module named 'routes'
+2026-06-24T06:30:55.400040715Z [inf]  
+2026-06-24T06:30:55.400045729Z [inf]     FastAPI   Starting production server 🚀
+2026-06-24T06:30:55.400048677Z [inf]   
+2026-06-24T06:30:55.400052981Z [inf]               Searching for package file structure from directories with         
+2026-06-24T06:30:55.400056114Z [inf]               __init__.py files                                                  
+2026-06-24T06:30:55.406533226Z [inf]  ERROR    Import error: No module named 'routes'                                 
+2026-06-24T06:30:55.406537682Z [inf]  WARNING  Ensure all the package directories have an __init__.py file            
+2026-06-24T06:30:55.406540853Z [inf]  
+2026-06-24T06:30:55.471118653Z [err]  ╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+2026-06-24T06:30:55.471125367Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:492 in run        │
+2026-06-24T06:30:55.471129570Z [err]  │                                                                              │
+2026-06-24T06:30:55.471133049Z [err]  │   489 │                                                                      │
+2026-06-24T06:30:55.471136745Z [err]  │   490 │   Otherwise, it uses the first [bold]FastAPI[/bold] app found in the │
+2026-06-24T06:30:55.471140804Z [err]  │       imported module or package.                                            │
+2026-06-24T06:30:55.471144085Z [err]  │   491 │   """                                                                │
+2026-06-24T06:30:55.471148037Z [err]  │ ❱ 492 │   _run(                                                              │
+2026-06-24T06:30:55.471151648Z [err]  │   493 │   │   path=path,                                                     │
+2026-06-24T06:30:55.471155047Z [err]  │   494 │   │   host=host,                                                     │
+2026-06-24T06:30:55.471158863Z [err]  │   495 │   │   port=port,                                                     │
+2026-06-24T06:30:55.471162955Z [err]  │                                                                              │
+2026-06-24T06:30:55.471166606Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:178 in _run       │
+2026-06-24T06:30:55.471169719Z [err]  │                                                                              │
+2026-06-24T06:30:55.471172869Z [err]  │   175 │   │   try:                                                           │
+2026-06-24T06:30:55.471175881Z [err]  │   176 │   │   │   # Resolve import data with priority: CLI path/app > config │
+2026-06-24T06:30:55.472853498Z [err]  │       entrypoint > auto-discovery                                            │
+2026-06-24T06:30:55.472860389Z [err]  │   177 │   │   │   if path or app:                                            │
+2026-06-24T06:30:55.472864374Z [err]  │ ❱ 178 │   │   │   │   import_data = get_import_data(path=path, app_name=app) │
+2026-06-24T06:30:55.472867761Z [err]  │   179 │   │   │   elif config.entrypoint:                                    │
+2026-06-24T06:30:55.472871604Z [err]  │   180 │   │   │   │   import_data = get_import_data_from_import_string(      │
+2026-06-24T06:30:55.472874841Z [err]  │   181 │   │   │   │   │   config.entrypoint, config.from_pyproject           │
+2026-06-24T06:30:55.472878871Z [err]  │                                                                              │
+2026-06-24T06:30:55.472883746Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:143 in       │
+2026-06-24T06:30:55.472888660Z [err]  │ get_import_data                                                              │
+2026-06-24T06:30:55.472893465Z [err]  │                                                                              │
+2026-06-24T06:30:55.472898248Z [err]  │   140 │   │   raise FastAPICLIException(f"Path does not exist {path}")       │
+2026-06-24T06:30:55.472902547Z [err]  │   141 │   mod_data = get_module_data_from_path(path)                         │
+2026-06-24T06:30:55.472906515Z [err]  │   142 │   sys.path.insert(0, str(mod_data.extra_sys_path))                   │
+2026-06-24T06:30:55.472910698Z [err]  │ ❱ 143 │   use_app_name = get_app_name(mod_data=mod_data, app_name=app_name)  │
+2026-06-24T06:30:55.472914255Z [err]  │   144 │                                                                      │
+2026-06-24T06:30:55.472917895Z [err]  │   145 │   import_string = f"{mod_data.module_import_str}:{use_app_name}"     │
+2026-06-24T06:30:55.474661813Z [err]  │   146                                                                        │
+2026-06-24T06:30:55.474666358Z [err]  │                                                                              │
+2026-06-24T06:30:55.474669268Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:70 in        │
+2026-06-24T06:30:55.474672945Z [err]  │ get_app_name                                                                 │
+2026-06-24T06:30:55.474675934Z [err]  │                                                                              │
+2026-06-24T06:30:55.474678768Z [err]  │    67                                                                        │
+2026-06-24T06:30:55.474681319Z [err]  │    68 def get_app_name(*, mod_data: ModuleData, app_name: str | None = None) │
+2026-06-24T06:30:55.474683889Z [err]  │       -> str:                                                                │
+2026-06-24T06:30:55.474686504Z [err]  │    69 │   try:                                                               │
+2026-06-24T06:30:55.474689206Z [err]  │ ❱  70 │   │   mod = importlib.import_module(mod_data.module_import_str)      │
+2026-06-24T06:30:55.474692034Z [err]  │    71 │   except (ImportError, ValueError) as e:                             │
+2026-06-24T06:30:55.474694743Z [err]  │    72 │   │   logger.error(f"Import error: {e}")                             │
+2026-06-24T06:30:55.474697334Z [err]  │    73 │   │   logger.warning(                                                │
+2026-06-24T06:30:55.474700365Z [err]  │                                                                              │
+2026-06-24T06:30:55.474702967Z [err]  │ /mise/installs/python/3.13.13/lib/python3.13/importlib/__init__.py:88 in     │
+2026-06-24T06:30:55.474705666Z [err]  │ import_module                                                                │
+2026-06-24T06:30:55.476400460Z [err]  │                                                                              │
+2026-06-24T06:30:55.476404998Z [err]  │    85 │   │   │   if character != '.':                                       │
+2026-06-24T06:30:55.476408105Z [err]  │    86 │   │   │   │   break                                                  │
+2026-06-24T06:30:55.476410736Z [err]  │    87 │   │   │   level += 1                                                 │
+2026-06-24T06:30:55.476413927Z [err]  │ ❱  88 │   return _bootstrap._gcd_import(name[level:], package, level)        │
+2026-06-24T06:30:55.476417809Z [err]  │    89                                                                        │
+2026-06-24T06:30:55.476421010Z [err]  │    90                                                                        │
+2026-06-24T06:30:55.476423498Z [err]  │    91 _RELOADING = {}                                                        │
+2026-06-24T06:30:55.476426053Z [err]  │ in _gcd_import:1395                                                          │
+2026-06-24T06:30:55.476428670Z [err]  │ in _find_and_load:1360                                                       │
+2026-06-24T06:30:55.476432025Z [err]  │ in _find_and_load_unlocked:1331                                              │
+2026-06-24T06:30:55.476435629Z [err]  │ in _load_unlocked:935                                                        │
+2026-06-24T06:30:55.476439776Z [err]  │ in exec_module:1023                                                          │
+2026-06-24T06:30:55.476443391Z [err]  │ in _call_with_frames_removed:488                                             │
+2026-06-24T06:30:55.476447591Z [err]  │                                                                              │
+2026-06-24T06:30:55.476451184Z [err]  │ /app/src/main.py:4 in <module>                                               │
+2026-06-24T06:30:55.478118820Z [err]  │                                                                              │
+2026-06-24T06:30:55.478123360Z [err]  │    1 from contextlib import asynccontextmanager                              │
+2026-06-24T06:30:55.478126640Z [err]  │    2                                                                         │
+2026-06-24T06:30:55.478129673Z [err]  │    3 from fastapi import FastAPI                                             │
+2026-06-24T06:30:55.478132706Z [err]  │ ❱  4 from routes import router as landing_web                                │
+2026-06-24T06:30:55.478135820Z [err]  │    5 from routes import adaptador_supabase as db                             │
+2026-06-24T06:30:55.478139068Z [err]  │    6                                                                         │
+2026-06-24T06:30:55.478142534Z [err]  │    7                                                                         │
+2026-06-24T06:30:55.478147486Z [err]  ╰──────────────────────────────────────────────────────────────────────────────╯
+2026-06-24T06:30:55.478151235Z [err]  ModuleNotFoundError: No module named 'routes'
+2026-06-24T06:30:57.265293629Z [inf]  
+2026-06-24T06:30:57.265297273Z [inf]     FastAPI   Starting production server 🚀
+2026-06-24T06:30:57.265301073Z [inf]   
+2026-06-24T06:30:57.265304738Z [inf]               Searching for package file structure from directories with         
+2026-06-24T06:30:57.265308207Z [inf]               __init__.py files                                                  
+2026-06-24T06:30:57.265311825Z [inf]  ERROR    Import error: No module named 'routes'                                 
+2026-06-24T06:30:57.265315228Z [inf]  WARNING  Ensure all the package directories have an __init__.py file            
+2026-06-24T06:30:57.265318802Z [inf]  
+2026-06-24T06:30:57.315899084Z [err]  ╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+2026-06-24T06:30:57.315903495Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:492 in run        │
+2026-06-24T06:30:57.315906473Z [err]  │                                                                              │
+2026-06-24T06:30:57.315909865Z [err]  │   489 │                                                                      │
+2026-06-24T06:30:57.315913106Z [err]  │   490 │   Otherwise, it uses the first [bold]FastAPI[/bold] app found in the │
+2026-06-24T06:30:57.315916378Z [err]  │       imported module or package.                                            │
+2026-06-24T06:30:57.315919305Z [err]  │   491 │   """                                                                │
+2026-06-24T06:30:57.315922156Z [err]  │ ❱ 492 │   _run(                                                              │
+2026-06-24T06:30:57.315925151Z [err]  │   493 │   │   path=path,                                                     │
+2026-06-24T06:30:57.315927937Z [err]  │   494 │   │   host=host,                                                     │
+2026-06-24T06:30:57.315932503Z [err]  │   495 │   │   port=port,                                                     │
+2026-06-24T06:30:57.315935104Z [err]  │                                                                              │
+2026-06-24T06:30:57.315937943Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:178 in _run       │
+2026-06-24T06:30:57.315940728Z [err]  │                                                                              │
+2026-06-24T06:30:57.315944228Z [err]  │   175 │   │   try:                                                           │
+2026-06-24T06:30:57.315947155Z [err]  │   176 │   │   │   # Resolve import data with priority: CLI path/app > config │
+2026-06-24T06:30:57.317610211Z [err]  │       entrypoint > auto-discovery                                            │
+2026-06-24T06:30:57.317617064Z [err]  │   177 │   │   │   if path or app:                                            │
+2026-06-24T06:30:57.317621503Z [err]  │ ❱ 178 │   │   │   │   import_data = get_import_data(path=path, app_name=app) │
+2026-06-24T06:30:57.317625289Z [err]  │   179 │   │   │   elif config.entrypoint:                                    │
+2026-06-24T06:30:57.317629458Z [err]  │   180 │   │   │   │   import_data = get_import_data_from_import_string(      │
+2026-06-24T06:30:57.317634549Z [err]  │   181 │   │   │   │   │   config.entrypoint, config.from_pyproject           │
+2026-06-24T06:30:57.317638269Z [err]  │                                                                              │
+2026-06-24T06:30:57.317642418Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:143 in       │
+2026-06-24T06:30:57.317646475Z [err]  │ get_import_data                                                              │
+2026-06-24T06:30:57.317650627Z [err]  │                                                                              │
+2026-06-24T06:30:57.317654201Z [err]  │   140 │   │   raise FastAPICLIException(f"Path does not exist {path}")       │
+2026-06-24T06:30:57.317657957Z [err]  │   141 │   mod_data = get_module_data_from_path(path)                         │
+2026-06-24T06:30:57.317661518Z [err]  │   142 │   sys.path.insert(0, str(mod_data.extra_sys_path))                   │
+2026-06-24T06:30:57.317665107Z [err]  │ ❱ 143 │   use_app_name = get_app_name(mod_data=mod_data, app_name=app_name)  │
+2026-06-24T06:30:57.317668590Z [err]  │   144 │                                                                      │
+2026-06-24T06:30:57.317672836Z [err]  │   145 │   import_string = f"{mod_data.module_import_str}:{use_app_name}"     │
+2026-06-24T06:30:57.319549088Z [err]  │ /mise/installs/python/3.13.13/lib/python3.13/importlib/__init__.py:88 in     │
+2026-06-24T06:30:57.319554611Z [err]  │   146                                                                        │
+2026-06-24T06:30:57.319558269Z [err]  │ import_module                                                                │
+2026-06-24T06:30:57.319561627Z [err]  │                                                                              │
+2026-06-24T06:30:57.319565324Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:70 in        │
+2026-06-24T06:30:57.319568252Z [err]  │ get_app_name                                                                 │
+2026-06-24T06:30:57.319570966Z [err]  │                                                                              │
+2026-06-24T06:30:57.319573911Z [err]  │    67                                                                        │
+2026-06-24T06:30:57.319576596Z [err]  │    68 def get_app_name(*, mod_data: ModuleData, app_name: str | None = None) │
+2026-06-24T06:30:57.319579386Z [err]  │       -> str:                                                                │
+2026-06-24T06:30:57.319582767Z [err]  │    69 │   try:                                                               │
+2026-06-24T06:30:57.319586151Z [err]  │ ❱  70 │   │   mod = importlib.import_module(mod_data.module_import_str)      │
+2026-06-24T06:30:57.319588819Z [err]  │    71 │   except (ImportError, ValueError) as e:                             │
+2026-06-24T06:30:57.319591414Z [err]  │    72 │   │   logger.error(f"Import error: {e}")                             │
+2026-06-24T06:30:57.319594321Z [err]  │    73 │   │   logger.warning(                                                │
+2026-06-24T06:30:57.319596867Z [err]  │                                                                              │
+2026-06-24T06:30:57.321246376Z [err]  │                                                                              │
+2026-06-24T06:30:57.321253511Z [err]  │    85 │   │   │   if character != '.':                                       │
+2026-06-24T06:30:57.321257575Z [err]  │    86 │   │   │   │   break                                                  │
+2026-06-24T06:30:57.321261103Z [err]  │    87 │   │   │   level += 1                                                 │
+2026-06-24T06:30:57.321264828Z [err]  │ ❱  88 │   return _bootstrap._gcd_import(name[level:], package, level)        │
+2026-06-24T06:30:57.321270097Z [err]  │    89                                                                        │
+2026-06-24T06:30:57.321274077Z [err]  │    90                                                                        │
+2026-06-24T06:30:57.321277656Z [err]  │    91 _RELOADING = {}                                                        │
+2026-06-24T06:30:57.321280931Z [err]  │ in _gcd_import:1395                                                          │
+2026-06-24T06:30:57.321284922Z [err]  │ in _find_and_load:1360                                                       │
+2026-06-24T06:30:57.321288850Z [err]  │ in _find_and_load_unlocked:1331                                              │
+2026-06-24T06:30:57.321292310Z [err]  │ in _load_unlocked:935                                                        │
+2026-06-24T06:30:57.321295525Z [err]  │ in exec_module:1023                                                          │
+2026-06-24T06:30:57.321298837Z [err]  │ in _call_with_frames_removed:488                                             │
+2026-06-24T06:30:57.321302080Z [err]  │                                                                              │
+2026-06-24T06:30:57.321305063Z [err]  │ /app/src/main.py:4 in <module>                                               │
+2026-06-24T06:30:57.323122861Z [err]  │    7                                                                         │
+2026-06-24T06:30:57.323127391Z [err]  ╰──────────────────────────────────────────────────────────────────────────────╯
+2026-06-24T06:30:57.323130959Z [err]  ModuleNotFoundError: No module named 'routes'
+2026-06-24T06:30:57.323136429Z [err]  │                                                                              │
+2026-06-24T06:30:57.323140550Z [err]  │    1 from contextlib import asynccontextmanager                              │
+2026-06-24T06:30:57.323144016Z [err]  │    2                                                                         │
+2026-06-24T06:30:57.323147476Z [err]  │    3 from fastapi import FastAPI                                             │
+2026-06-24T06:30:57.323150483Z [err]  │ ❱  4 from routes import router as landing_web                                │
+2026-06-24T06:30:57.323153885Z [err]  │    5 from routes import adaptador_supabase as db                             │
+2026-06-24T06:30:57.323157799Z [err]  │    6                                                                         │
+2026-06-24T06:30:59.318002304Z [inf]  
+2026-06-24T06:30:59.318008180Z [inf]     FastAPI   Starting production server 🚀
+2026-06-24T06:30:59.318012247Z [inf]   
+2026-06-24T06:30:59.318015802Z [inf]               Searching for package file structure from directories with         
+2026-06-24T06:30:59.318019402Z [inf]               __init__.py files                                                  
+2026-06-24T06:30:59.318022830Z [inf]  ERROR    Import error: No module named 'routes'                                 
+2026-06-24T06:30:59.318026400Z [inf]  WARNING  Ensure all the package directories have an __init__.py file            
+2026-06-24T06:30:59.318029884Z [inf]  
+2026-06-24T06:30:59.318033398Z [err]  ╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+2026-06-24T06:30:59.318036540Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:492 in run        │
+2026-06-24T06:30:59.318040189Z [err]  │                                                                              │
+2026-06-24T06:30:59.318043699Z [err]  │   489 │                                                                      │
+2026-06-24T06:30:59.318047060Z [err]  │   490 │   Otherwise, it uses the first [bold]FastAPI[/bold] app found in the │
+2026-06-24T06:30:59.318050649Z [err]  │       imported module or package.                                            │
+2026-06-24T06:30:59.318053889Z [err]  │   491 │   """                                                                │
+2026-06-24T06:30:59.318057414Z [err]  │ ❱ 492 │   _run(                                                              │
+2026-06-24T06:30:59.318060646Z [err]  │   493 │   │   path=path,                                                     │
+2026-06-24T06:30:59.318063692Z [err]  │   494 │   │   host=host,                                                     │
+2026-06-24T06:30:59.319480967Z [err]  │   495 │   │   port=port,                                                     │
+2026-06-24T06:30:59.319485935Z [err]  │                                                                              │
+2026-06-24T06:30:59.319489809Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:178 in _run       │
+2026-06-24T06:30:59.319494099Z [err]  │                                                                              │
+2026-06-24T06:30:59.319499401Z [err]  │   175 │   │   try:                                                           │
+2026-06-24T06:30:59.319504209Z [err]  │   176 │   │   │   # Resolve import data with priority: CLI path/app > config │
+2026-06-24T06:30:59.319508736Z [err]  │       entrypoint > auto-discovery                                            │
+2026-06-24T06:30:59.319512557Z [err]  │   177 │   │   │   if path or app:                                            │
+2026-06-24T06:30:59.319516119Z [err]  │ ❱ 178 │   │   │   │   import_data = get_import_data(path=path, app_name=app) │
+2026-06-24T06:30:59.319519248Z [err]  │   179 │   │   │   elif config.entrypoint:                                    │
+2026-06-24T06:30:59.319522631Z [err]  │   180 │   │   │   │   import_data = get_import_data_from_import_string(      │
+2026-06-24T06:30:59.319526240Z [err]  │   181 │   │   │   │   │   config.entrypoint, config.from_pyproject           │
+2026-06-24T06:30:59.319530076Z [err]  │                                                                              │
+2026-06-24T06:30:59.319533605Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:143 in       │
+2026-06-24T06:30:59.319537213Z [err]  │ get_import_data                                                              │
+2026-06-24T06:30:59.319540648Z [err]  │                                                                              │
+2026-06-24T06:30:59.321597425Z [err]  │    69 │   try:                                                               │
+2026-06-24T06:30:59.321600111Z [err]  │   140 │   │   raise FastAPICLIException(f"Path does not exist {path}")       │
+2026-06-24T06:30:59.321605426Z [err]  │   141 │   mod_data = get_module_data_from_path(path)                         │
+2026-06-24T06:30:59.321607966Z [err]  │ ❱  70 │   │   mod = importlib.import_module(mod_data.module_import_str)      │
+2026-06-24T06:30:59.321610573Z [err]  │   142 │   sys.path.insert(0, str(mod_data.extra_sys_path))                   │
+2026-06-24T06:30:59.321614821Z [err]  │ ❱ 143 │   use_app_name = get_app_name(mod_data=mod_data, app_name=app_name)  │
+2026-06-24T06:30:59.321619496Z [err]  │   144 │                                                                      │
+2026-06-24T06:30:59.321623155Z [err]  │   145 │   import_string = f"{mod_data.module_import_str}:{use_app_name}"     │
+2026-06-24T06:30:59.321627329Z [err]  │   146                                                                        │
+2026-06-24T06:30:59.321630641Z [err]  │                                                                              │
+2026-06-24T06:30:59.321634495Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:70 in        │
+2026-06-24T06:30:59.321637498Z [err]  │ get_app_name                                                                 │
+2026-06-24T06:30:59.321640289Z [err]  │                                                                              │
+2026-06-24T06:30:59.321642961Z [err]  │    67                                                                        │
+2026-06-24T06:30:59.321645609Z [err]  │    68 def get_app_name(*, mod_data: ModuleData, app_name: str | None = None) │
+2026-06-24T06:30:59.321649485Z [err]  │       -> str:                                                                │
+2026-06-24T06:30:59.323487977Z [err]  │    91 _RELOADING = {}                                                        │
+2026-06-24T06:30:59.323491660Z [err]  │ in _gcd_import:1395                                                          │
+2026-06-24T06:30:59.323495017Z [err]  │ in _find_and_load:1360                                                       │
+2026-06-24T06:30:59.323508792Z [err]  │    71 │   except (ImportError, ValueError) as e:                             │
+2026-06-24T06:30:59.323515047Z [err]  │    72 │   │   logger.error(f"Import error: {e}")                             │
+2026-06-24T06:30:59.323519815Z [err]  │    73 │   │   logger.warning(                                                │
+2026-06-24T06:30:59.323524275Z [err]  │                                                                              │
+2026-06-24T06:30:59.323531126Z [err]  │ /mise/installs/python/3.13.13/lib/python3.13/importlib/__init__.py:88 in     │
+2026-06-24T06:30:59.323535178Z [err]  │ import_module                                                                │
+2026-06-24T06:30:59.323538587Z [err]  │                                                                              │
+2026-06-24T06:30:59.323542192Z [err]  │    85 │   │   │   if character != '.':                                       │
+2026-06-24T06:30:59.323545381Z [err]  │    86 │   │   │   │   break                                                  │
+2026-06-24T06:30:59.323548538Z [err]  │    87 │   │   │   level += 1                                                 │
+2026-06-24T06:30:59.323551614Z [err]  │ ❱  88 │   return _bootstrap._gcd_import(name[level:], package, level)        │
+2026-06-24T06:30:59.323554408Z [err]  │    89                                                                        │
+2026-06-24T06:30:59.323557549Z [err]  │    90                                                                        │
+2026-06-24T06:30:59.325306823Z [err]  │ in _find_and_load_unlocked:1331                                              │
+2026-06-24T06:30:59.325315572Z [err]  │ in _load_unlocked:935                                                        │
+2026-06-24T06:30:59.325319567Z [err]  │ in exec_module:1023                                                          │
+2026-06-24T06:30:59.325322955Z [err]  │ in _call_with_frames_removed:488                                             │
+2026-06-24T06:30:59.325326209Z [err]  │                                                                              │
+2026-06-24T06:30:59.325329991Z [err]  │ /app/src/main.py:4 in <module>                                               │
+2026-06-24T06:30:59.325333657Z [err]  │                                                                              │
+2026-06-24T06:30:59.325337641Z [err]  │    1 from contextlib import asynccontextmanager                              │
+2026-06-24T06:30:59.325341395Z [err]  │    2                                                                         │
+2026-06-24T06:30:59.325344806Z [err]  │    3 from fastapi import FastAPI                                             │
+2026-06-24T06:30:59.325348947Z [err]  │ ❱  4 from routes import router as landing_web                                │
+2026-06-24T06:30:59.325352229Z [err]  │    5 from routes import adaptador_supabase as db                             │
+2026-06-24T06:30:59.325355713Z [err]  │    6                                                                         │
+2026-06-24T06:30:59.325358862Z [err]  │    7                                                                         │
+2026-06-24T06:30:59.325362078Z [err]  ╰──────────────────────────────────────────────────────────────────────────────╯
+2026-06-24T06:30:59.327013088Z [err]  ModuleNotFoundError: No module named 'routes'
+2026-06-24T06:31:00.932936569Z [inf]  
+2026-06-24T06:31:00.932941800Z [inf]     FastAPI   Starting production server 🚀
+2026-06-24T06:31:00.932944941Z [inf]   
+2026-06-24T06:31:00.932947632Z [inf]               Searching for package file structure from directories with         
+2026-06-24T06:31:00.932950807Z [inf]               __init__.py files                                                  
+2026-06-24T06:31:00.932954038Z [inf]  ERROR    Import error: No module named 'routes'                                 
+2026-06-24T06:31:00.932957592Z [inf]  WARNING  Ensure all the package directories have an __init__.py file            
+2026-06-24T06:31:00.932961745Z [inf]  
+2026-06-24T06:31:01.000796392Z [err]  ╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+2026-06-24T06:31:01.000802533Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:492 in run        │
+2026-06-24T06:31:01.000806902Z [err]  │                                                                              │
+2026-06-24T06:31:01.000812750Z [err]  │   489 │                                                                      │
+2026-06-24T06:31:01.000817144Z [err]  │   490 │   Otherwise, it uses the first [bold]FastAPI[/bold] app found in the │
+2026-06-24T06:31:01.000821215Z [err]  │       imported module or package.                                            │
+2026-06-24T06:31:01.000826184Z [err]  │   491 │   """                                                                │
+2026-06-24T06:31:01.000829928Z [err]  │ ❱ 492 │   _run(                                                              │
+2026-06-24T06:31:01.000833517Z [err]  │   493 │   │   path=path,                                                     │
+2026-06-24T06:31:01.000837171Z [err]  │   494 │   │   host=host,                                                     │
+2026-06-24T06:31:01.000840719Z [err]  │   495 │   │   port=port,                                                     │
+2026-06-24T06:31:01.000844583Z [err]  │                                                                              │
+2026-06-24T06:31:01.000849464Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:178 in _run       │
+2026-06-24T06:31:01.000853276Z [err]  │                                                                              │
+2026-06-24T06:31:01.000857374Z [err]  │   175 │   │   try:                                                           │
+2026-06-24T06:31:01.000860965Z [err]  │   176 │   │   │   # Resolve import data with priority: CLI path/app > config │
+2026-06-24T06:31:01.351500779Z [err]  │       entrypoint > auto-discovery                                            │
+2026-06-24T06:31:01.351504889Z [err]  │   177 │   │   │   if path or app:                                            │
+2026-06-24T06:31:01.351509655Z [err]  │ ❱ 178 │   │   │   │   import_data = get_import_data(path=path, app_name=app) │
+2026-06-24T06:31:01.351513948Z [err]  │   179 │   │   │   elif config.entrypoint:                                    │
+2026-06-24T06:31:01.351517443Z [err]  │   180 │   │   │   │   import_data = get_import_data_from_import_string(      │
+2026-06-24T06:31:01.351521176Z [err]  │   181 │   │   │   │   │   config.entrypoint, config.from_pyproject           │
+2026-06-24T06:31:01.351524710Z [err]  │                                                                              │
+2026-06-24T06:31:01.351527685Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:143 in       │
+2026-06-24T06:31:01.351530886Z [err]  │ get_import_data                                                              │
+2026-06-24T06:31:01.351533587Z [err]  │                                                                              │
+2026-06-24T06:31:01.351536538Z [err]  │   140 │   │   raise FastAPICLIException(f"Path does not exist {path}")       │
+2026-06-24T06:31:01.351539698Z [err]  │   141 │   mod_data = get_module_data_from_path(path)                         │
+2026-06-24T06:31:01.351542920Z [err]  │   142 │   sys.path.insert(0, str(mod_data.extra_sys_path))                   │
+2026-06-24T06:31:01.351546053Z [err]  │ ❱ 143 │   use_app_name = get_app_name(mod_data=mod_data, app_name=app_name)  │
+2026-06-24T06:31:01.351548831Z [err]  │   144 │                                                                      │
+2026-06-24T06:31:01.351551786Z [err]  │   145 │   import_string = f"{mod_data.module_import_str}:{use_app_name}"     │
+2026-06-24T06:31:01.352748953Z [err]  │ get_app_name                                                                 │
+2026-06-24T06:31:01.352753981Z [err]  │    73 │   │   logger.warning(                                                │
+2026-06-24T06:31:01.352754365Z [err]  │                                                                              │
+2026-06-24T06:31:01.352758543Z [err]  │    67                                                                        │
+2026-06-24T06:31:01.352761519Z [err]  │                                                                              │
+2026-06-24T06:31:01.352763831Z [err]  │    68 def get_app_name(*, mod_data: ModuleData, app_name: str | None = None) │
+2026-06-24T06:31:01.352768262Z [err]  │ /mise/installs/python/3.13.13/lib/python3.13/importlib/__init__.py:88 in     │
+2026-06-24T06:31:01.352768855Z [err]  │       -> str:                                                                │
+2026-06-24T06:31:01.352774784Z [err]  │    69 │   try:                                                               │
+2026-06-24T06:31:01.352775312Z [err]  │ import_module                                                                │
+2026-06-24T06:31:01.352779322Z [err]  │ ❱  70 │   │   mod = importlib.import_module(mod_data.module_import_str)      │
+2026-06-24T06:31:01.352782763Z [err]  │    71 │   except (ImportError, ValueError) as e:                             │
+2026-06-24T06:31:01.352785838Z [err]  │    72 │   │   logger.error(f"Import error: {e}")                             │
+2026-06-24T06:31:01.352854092Z [err]  │   146                                                                        │
+2026-06-24T06:31:01.352857548Z [err]  │                                                                              │
+2026-06-24T06:31:01.352861344Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:70 in        │
+2026-06-24T06:31:01.354685520Z [err]  │ in _load_unlocked:935                                                        │
+2026-06-24T06:31:01.354691383Z [err]  │ in exec_module:1023                                                          │
+2026-06-24T06:31:01.354692760Z [err]  │                                                                              │
+2026-06-24T06:31:01.354696465Z [err]  │ in _call_with_frames_removed:488                                             │
+2026-06-24T06:31:01.354701131Z [err]  │                                                                              │
+2026-06-24T06:31:01.354703243Z [err]  │    85 │   │   │   if character != '.':                                       │
+2026-06-24T06:31:01.354706249Z [err]  │ /app/src/main.py:4 in <module>                                               │
+2026-06-24T06:31:01.354709680Z [err]  │    86 │   │   │   │   break                                                  │
+2026-06-24T06:31:01.354714092Z [err]  │    87 │   │   │   level += 1                                                 │
+2026-06-24T06:31:01.354718452Z [err]  │ ❱  88 │   return _bootstrap._gcd_import(name[level:], package, level)        │
+2026-06-24T06:31:01.354723161Z [err]  │    89                                                                        │
+2026-06-24T06:31:01.354727234Z [err]  │    90                                                                        │
+2026-06-24T06:31:01.354731865Z [err]  │    91 _RELOADING = {}                                                        │
+2026-06-24T06:31:01.354736441Z [err]  │ in _gcd_import:1395                                                          │
+2026-06-24T06:31:01.354741243Z [err]  │ in _find_and_load:1360                                                       │
+2026-06-24T06:31:01.354745893Z [err]  │ in _find_and_load_unlocked:1331                                              │
+2026-06-24T06:31:01.355864920Z [err]  │                                                                              │
+2026-06-24T06:31:01.355872236Z [err]  │    1 from contextlib import asynccontextmanager                              │
+2026-06-24T06:31:01.355877676Z [err]  │    2                                                                         │
+2026-06-24T06:31:01.355881087Z [err]  │    3 from fastapi import FastAPI                                             │
+2026-06-24T06:31:01.355884784Z [err]  │ ❱  4 from routes import router as landing_web                                │
+2026-06-24T06:31:01.355888322Z [err]  │    5 from routes import adaptador_supabase as db                             │
+2026-06-24T06:31:01.355891861Z [err]  │    6                                                                         │
+2026-06-24T06:31:01.355896108Z [err]  │    7                                                                         │
+2026-06-24T06:31:01.355899840Z [err]  ╰──────────────────────────────────────────────────────────────────────────────╯
+2026-06-24T06:31:01.355903162Z [err]  ModuleNotFoundError: No module named 'routes'
+2026-06-24T06:31:02.950924500Z [inf]     FastAPI   Starting production server 🚀
+2026-06-24T06:31:02.950934016Z [inf]   
+2026-06-24T06:31:02.950990422Z [inf]  
+2026-06-24T06:31:02.952326246Z [inf]               Searching for package file structure from directories with         
+2026-06-24T06:31:02.952333119Z [inf]               __init__.py files                                                  
+2026-06-24T06:31:02.958848186Z [inf]  ERROR    Import error: No module named 'routes'                                 
+2026-06-24T06:31:02.958853014Z [inf]  WARNING  Ensure all the package directories have an __init__.py file            
+2026-06-24T06:31:02.958856499Z [inf]  
+2026-06-24T06:31:03.374772537Z [err]  │                                                                              │
+2026-06-24T06:31:03.374776060Z [err]  │   176 │   │   │   # Resolve import data with priority: CLI path/app > config │
+2026-06-24T06:31:03.374778985Z [err]  │   489 │                                                                      │
+2026-06-24T06:31:03.374783271Z [err]  │   490 │   Otherwise, it uses the first [bold]FastAPI[/bold] app found in the │
+2026-06-24T06:31:03.374786433Z [err]  │       imported module or package.                                            │
+2026-06-24T06:31:03.374790321Z [err]  │ ❱ 492 │   _run(                                                              │
+2026-06-24T06:31:03.374792304Z [err]  │   491 │   """                                                                │
+2026-06-24T06:31:03.374795861Z [err]  │   493 │   │   path=path,                                                     │
+2026-06-24T06:31:03.374800546Z [err]  │   494 │   │   host=host,                                                     │
+2026-06-24T06:31:03.374804170Z [err]  │   495 │   │   port=port,                                                     │
+2026-06-24T06:31:03.374814403Z [err]  │                                                                              │
+2026-06-24T06:31:03.374824165Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:178 in _run       │
+2026-06-24T06:31:03.374825605Z [err]  ╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+2026-06-24T06:31:03.374832029Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:492 in run        │
+2026-06-24T06:31:03.374833022Z [err]  │                                                                              │
+2026-06-24T06:31:03.374839142Z [err]  │   175 │   │   try:                                                           │
+2026-06-24T06:31:03.375717855Z [err]  │   140 │   │   raise FastAPICLIException(f"Path does not exist {path}")       │
+2026-06-24T06:31:03.375721743Z [err]  │   141 │   mod_data = get_module_data_from_path(path)                         │
+2026-06-24T06:31:03.375726130Z [err]  │   142 │   sys.path.insert(0, str(mod_data.extra_sys_path))                   │
+2026-06-24T06:31:03.375730516Z [err]  │ ❱ 143 │   use_app_name = get_app_name(mod_data=mod_data, app_name=app_name)  │
+2026-06-24T06:31:03.375733831Z [err]  │   144 │                                                                      │
+2026-06-24T06:31:03.375746714Z [err]  │   145 │   import_string = f"{mod_data.module_import_str}:{use_app_name}"     │
+2026-06-24T06:31:03.375770494Z [err]  │       entrypoint > auto-discovery                                            │
+2026-06-24T06:31:03.375773164Z [err]  │   177 │   │   │   if path or app:                                            │
+2026-06-24T06:31:03.375776072Z [err]  │ ❱ 178 │   │   │   │   import_data = get_import_data(path=path, app_name=app) │
+2026-06-24T06:31:03.375779060Z [err]  │   179 │   │   │   elif config.entrypoint:                                    │
+2026-06-24T06:31:03.375782180Z [err]  │   180 │   │   │   │   import_data = get_import_data_from_import_string(      │
+2026-06-24T06:31:03.375785335Z [err]  │   181 │   │   │   │   │   config.entrypoint, config.from_pyproject           │
+2026-06-24T06:31:03.375788318Z [err]  │                                                                              │
+2026-06-24T06:31:03.375791032Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:143 in       │
+2026-06-24T06:31:03.375794337Z [err]  │ get_import_data                                                              │
+2026-06-24T06:31:03.375797681Z [err]  │                                                                              │
+2026-06-24T06:31:03.376922119Z [err]  │   146                                                                        │
+2026-06-24T06:31:03.376928425Z [err]  │                                                                              │
+2026-06-24T06:31:03.376932869Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:70 in        │
+2026-06-24T06:31:03.376937195Z [err]  │ get_app_name                                                                 │
+2026-06-24T06:31:03.376941146Z [err]  │                                                                              │
+2026-06-24T06:31:03.376945285Z [err]  │    67                                                                        │
+2026-06-24T06:31:03.376948936Z [err]  │    68 def get_app_name(*, mod_data: ModuleData, app_name: str | None = None) │
+2026-06-24T06:31:03.376952591Z [err]  │       -> str:                                                                │
+2026-06-24T06:31:03.376956816Z [err]  │    69 │   try:                                                               │
+2026-06-24T06:31:03.376961006Z [err]  │ ❱  70 │   │   mod = importlib.import_module(mod_data.module_import_str)      │
+2026-06-24T06:31:03.376964754Z [err]  │    71 │   except (ImportError, ValueError) as e:                             │
+2026-06-24T06:31:03.376968325Z [err]  │    72 │   │   logger.error(f"Import error: {e}")                             │
+2026-06-24T06:31:03.376971716Z [err]  │    73 │   │   logger.warning(                                                │
+2026-06-24T06:31:03.376975576Z [err]  │                                                                              │
+2026-06-24T06:31:03.376979065Z [err]  │ /mise/installs/python/3.13.13/lib/python3.13/importlib/__init__.py:88 in     │
+2026-06-24T06:31:03.376982375Z [err]  │ import_module                                                                │
+2026-06-24T06:31:03.378695615Z [err]  │                                                                              │
+2026-06-24T06:31:03.378700723Z [err]  │    85 │   │   │   if character != '.':                                       │
+2026-06-24T06:31:03.378704012Z [err]  │    86 │   │   │   │   break                                                  │
+2026-06-24T06:31:03.378707148Z [err]  │    87 │   │   │   level += 1                                                 │
+2026-06-24T06:31:03.378710120Z [err]  │ ❱  88 │   return _bootstrap._gcd_import(name[level:], package, level)        │
+2026-06-24T06:31:03.378713530Z [err]  │    89                                                                        │
+2026-06-24T06:31:03.378716237Z [err]  │    90                                                                        │
+2026-06-24T06:31:03.378718948Z [err]  │    91 _RELOADING = {}                                                        │
+2026-06-24T06:31:03.378721432Z [err]  │ in _gcd_import:1395                                                          │
+2026-06-24T06:31:03.378724182Z [err]  │ in _find_and_load:1360                                                       │
+2026-06-24T06:31:03.378726989Z [err]  │ in _find_and_load_unlocked:1331                                              │
+2026-06-24T06:31:03.378729541Z [err]  │ in _load_unlocked:935                                                        │
+2026-06-24T06:31:03.378749373Z [err]  │ in exec_module:1023                                                          │
+2026-06-24T06:31:03.378751987Z [err]  │ in _call_with_frames_removed:488                                             │
+2026-06-24T06:31:03.378754790Z [err]  │                                                                              │
+2026-06-24T06:31:03.378757987Z [err]  │ /app/src/main.py:4 in <module>                                               │
+2026-06-24T06:31:03.380394699Z [err]  │                                                                              │
+2026-06-24T06:31:03.380401632Z [err]  │    1 from contextlib import asynccontextmanager                              │
+2026-06-24T06:31:03.380406741Z [err]  │    2                                                                         │
+2026-06-24T06:31:03.380411551Z [err]  │    3 from fastapi import FastAPI                                             │
+2026-06-24T06:31:03.380416755Z [err]  │ ❱  4 from routes import router as landing_web                                │
+2026-06-24T06:31:03.380420705Z [err]  │    5 from routes import adaptador_supabase as db                             │
+2026-06-24T06:31:03.380425661Z [err]  │    6                                                                         │
+2026-06-24T06:31:03.380430060Z [err]  │    7                                                                         │
+2026-06-24T06:31:03.380435698Z [err]  ╰──────────────────────────────────────────────────────────────────────────────╯
+2026-06-24T06:31:03.380439047Z [err]  ModuleNotFoundError: No module named 'routes'
+2026-06-24T06:31:04.812374849Z [inf]  
+2026-06-24T06:31:04.812381874Z [inf]     FastAPI   Starting production server 🚀
+2026-06-24T06:31:04.812387285Z [inf]   
+2026-06-24T06:31:04.812391694Z [inf]               Searching for package file structure from directories with         
+2026-06-24T06:31:04.812397618Z [inf]               __init__.py files                                                  
+2026-06-24T06:31:04.813944949Z [inf]  ERROR    Import error: No module named 'routes'                                 
+2026-06-24T06:31:04.815488002Z [inf]  WARNING  Ensure all the package directories have an __init__.py file            
+2026-06-24T06:31:04.815494269Z [inf]  
+2026-06-24T06:31:04.888363786Z [err]  │   175 │   │   try:                                                           │
+2026-06-24T06:31:04.888373973Z [err]  │   176 │   │   │   # Resolve import data with priority: CLI path/app > config │
+2026-06-24T06:31:04.888381490Z [err]  ╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+2026-06-24T06:31:04.888388320Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:492 in run        │
+2026-06-24T06:31:04.888392464Z [err]  │                                                                              │
+2026-06-24T06:31:04.888396905Z [err]  │   489 │                                                                      │
+2026-06-24T06:31:04.888402273Z [err]  │   490 │   Otherwise, it uses the first [bold]FastAPI[/bold] app found in the │
+2026-06-24T06:31:04.888407512Z [err]  │       imported module or package.                                            │
+2026-06-24T06:31:04.888411108Z [err]  │   491 │   """                                                                │
+2026-06-24T06:31:04.888414432Z [err]  │ ❱ 492 │   _run(                                                              │
+2026-06-24T06:31:04.888417983Z [err]  │   493 │   │   path=path,                                                     │
+2026-06-24T06:31:04.888421429Z [err]  │   494 │   │   host=host,                                                     │
+2026-06-24T06:31:04.888424468Z [err]  │   495 │   │   port=port,                                                     │
+2026-06-24T06:31:04.888427804Z [err]  │                                                                              │
+2026-06-24T06:31:04.888431051Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:178 in _run       │
+2026-06-24T06:31:04.888434238Z [err]  │                                                                              │
+2026-06-24T06:31:04.889831220Z [err]  │       entrypoint > auto-discovery                                            │
+2026-06-24T06:31:04.889837218Z [err]  │   177 │   │   │   if path or app:                                            │
+2026-06-24T06:31:04.889841653Z [err]  │ ❱ 178 │   │   │   │   import_data = get_import_data(path=path, app_name=app) │
+2026-06-24T06:31:04.889845484Z [err]  │   179 │   │   │   elif config.entrypoint:                                    │
+2026-06-24T06:31:04.889849818Z [err]  │   180 │   │   │   │   import_data = get_import_data_from_import_string(      │
+2026-06-24T06:31:04.889853625Z [err]  │   181 │   │   │   │   │   config.entrypoint, config.from_pyproject           │
+2026-06-24T06:31:04.889856525Z [err]  │                                                                              │
+2026-06-24T06:31:04.889859573Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:143 in       │
+2026-06-24T06:31:04.889863772Z [err]  │ get_import_data                                                              │
+2026-06-24T06:31:04.889867128Z [err]  │                                                                              │
+2026-06-24T06:31:04.889870330Z [err]  │   140 │   │   raise FastAPICLIException(f"Path does not exist {path}")       │
+2026-06-24T06:31:04.889889874Z [err]  │   141 │   mod_data = get_module_data_from_path(path)                         │
+2026-06-24T06:31:04.889893789Z [err]  │   142 │   sys.path.insert(0, str(mod_data.extra_sys_path))                   │
+2026-06-24T06:31:04.889897999Z [err]  │ ❱ 143 │   use_app_name = get_app_name(mod_data=mod_data, app_name=app_name)  │
+2026-06-24T06:31:04.889901875Z [err]  │   144 │                                                                      │
+2026-06-24T06:31:04.889905804Z [err]  │   145 │   import_string = f"{mod_data.module_import_str}:{use_app_name}"     │
+2026-06-24T06:31:04.891386610Z [err]  │ /mise/installs/python/3.13.13/lib/python3.13/importlib/__init__.py:88 in     │
+2026-06-24T06:31:04.891394874Z [err]  │ import_module                                                                │
+2026-06-24T06:31:04.891404545Z [err]  │   146                                                                        │
+2026-06-24T06:31:04.891413322Z [err]  │                                                                              │
+2026-06-24T06:31:04.891418128Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:70 in        │
+2026-06-24T06:31:04.891422287Z [err]  │ get_app_name                                                                 │
+2026-06-24T06:31:04.891426161Z [err]  │                                                                              │
+2026-06-24T06:31:04.891430280Z [err]  │    67                                                                        │
+2026-06-24T06:31:04.891436346Z [err]  │    68 def get_app_name(*, mod_data: ModuleData, app_name: str | None = None) │
+2026-06-24T06:31:04.891440053Z [err]  │       -> str:                                                                │
+2026-06-24T06:31:04.891443746Z [err]  │    69 │   try:                                                               │
+2026-06-24T06:31:04.891447575Z [err]  │ ❱  70 │   │   mod = importlib.import_module(mod_data.module_import_str)      │
+2026-06-24T06:31:04.891451135Z [err]  │    71 │   except (ImportError, ValueError) as e:                             │
+2026-06-24T06:31:04.891454518Z [err]  │    72 │   │   logger.error(f"Import error: {e}")                             │
+2026-06-24T06:31:04.891458513Z [err]  │    73 │   │   logger.warning(                                                │
+2026-06-24T06:31:04.891462026Z [err]  │                                                                              │
+2026-06-24T06:31:04.892854825Z [err]  │ in _call_with_frames_removed:488                                             │
+2026-06-24T06:31:04.892861774Z [err]  │                                                                              │
+2026-06-24T06:31:04.892867226Z [err]  │                                                                              │
+2026-06-24T06:31:04.892870302Z [err]  │ /app/src/main.py:4 in <module>                                               │
+2026-06-24T06:31:04.892873555Z [err]  │    85 │   │   │   if character != '.':                                       │
+2026-06-24T06:31:04.892877443Z [err]  │    86 │   │   │   │   break                                                  │
+2026-06-24T06:31:04.892880705Z [err]  │    87 │   │   │   level += 1                                                 │
+2026-06-24T06:31:04.892883919Z [err]  │ ❱  88 │   return _bootstrap._gcd_import(name[level:], package, level)        │
+2026-06-24T06:31:04.892886927Z [err]  │    89                                                                        │
+2026-06-24T06:31:04.892889992Z [err]  │    90                                                                        │
+2026-06-24T06:31:04.892892954Z [err]  │    91 _RELOADING = {}                                                        │
+2026-06-24T06:31:04.892895926Z [err]  │ in _gcd_import:1395                                                          │
+2026-06-24T06:31:04.892898858Z [err]  │ in _find_and_load:1360                                                       │
+2026-06-24T06:31:04.892901915Z [err]  │ in _find_and_load_unlocked:1331                                              │
+2026-06-24T06:31:04.892904793Z [err]  │ in _load_unlocked:935                                                        │
+2026-06-24T06:31:04.892907913Z [err]  │ in exec_module:1023                                                          │
+2026-06-24T06:31:04.894329293Z [err]  │                                                                              │
+2026-06-24T06:31:04.894334548Z [err]  │    1 from contextlib import asynccontextmanager                              │
+2026-06-24T06:31:04.894337565Z [err]  │    2                                                                         │
+2026-06-24T06:31:04.894340445Z [err]  │    3 from fastapi import FastAPI                                             │
+2026-06-24T06:31:04.894343171Z [err]  │ ❱  4 from routes import router as landing_web                                │
+2026-06-24T06:31:04.894346494Z [err]  │    5 from routes import adaptador_supabase as db                             │
+2026-06-24T06:31:04.894350073Z [err]  │    6                                                                         │
+2026-06-24T06:31:04.894353571Z [err]  │    7                                                                         │
+2026-06-24T06:31:04.894357473Z [err]  ╰──────────────────────────────────────────────────────────────────────────────╯
+2026-06-24T06:31:04.894361929Z [err]  ModuleNotFoundError: No module named 'routes'
+2026-06-24T06:31:06.676912373Z [inf]  
+2026-06-24T06:31:06.676916143Z [inf]     FastAPI   Starting production server 🚀
+2026-06-24T06:31:06.676919739Z [inf]   
+2026-06-24T06:31:06.676923681Z [inf]               Searching for package file structure from directories with         
+2026-06-24T06:31:06.676927162Z [inf]               __init__.py files                                                  
+2026-06-24T06:31:06.676931114Z [inf]  ERROR    Import error: No module named 'routes'                                 
+2026-06-24T06:31:06.676935268Z [inf]  WARNING  Ensure all the package directories have an __init__.py file            
+2026-06-24T06:31:06.676939389Z [inf]  
+2026-06-24T06:31:06.732600096Z [err]  ╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+2026-06-24T06:31:06.732604479Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:492 in run        │
+2026-06-24T06:31:06.732607642Z [err]  │                                                                              │
+2026-06-24T06:31:06.732611565Z [err]  │   489 │                                                                      │
+2026-06-24T06:31:06.732614257Z [err]  │   490 │   Otherwise, it uses the first [bold]FastAPI[/bold] app found in the │
+2026-06-24T06:31:06.732617142Z [err]  │       imported module or package.                                            │
+2026-06-24T06:31:06.732619961Z [err]  │   491 │   """                                                                │
+2026-06-24T06:31:06.732622710Z [err]  │ ❱ 492 │   _run(                                                              │
+2026-06-24T06:31:06.732625439Z [err]  │   493 │   │   path=path,                                                     │
+2026-06-24T06:31:06.732628267Z [err]  │   494 │   │   host=host,                                                     │
+2026-06-24T06:31:06.732630840Z [err]  │   495 │   │   port=port,                                                     │
+2026-06-24T06:31:06.732633452Z [err]  │                                                                              │
+2026-06-24T06:31:06.732636163Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:178 in _run       │
+2026-06-24T06:31:06.732638921Z [err]  │                                                                              │
+2026-06-24T06:31:06.732641702Z [err]  │   175 │   │   try:                                                           │
+2026-06-24T06:31:06.732644404Z [err]  │   176 │   │   │   # Resolve import data with priority: CLI path/app > config │
+2026-06-24T06:31:06.733950674Z [err]  │       entrypoint > auto-discovery                                            │
+2026-06-24T06:31:06.733954191Z [err]  │                                                                              │
+2026-06-24T06:31:06.733958322Z [err]  │   177 │   │   │   if path or app:                                            │
+2026-06-24T06:31:06.733962095Z [err]  │   140 │   │   raise FastAPICLIException(f"Path does not exist {path}")       │
+2026-06-24T06:31:06.733965111Z [err]  │ ❱ 178 │   │   │   │   import_data = get_import_data(path=path, app_name=app) │
+2026-06-24T06:31:06.733968422Z [err]  │   141 │   mod_data = get_module_data_from_path(path)                         │
+2026-06-24T06:31:06.733971684Z [err]  │   179 │   │   │   elif config.entrypoint:                                    │
+2026-06-24T06:31:06.733975830Z [err]  │   180 │   │   │   │   import_data = get_import_data_from_import_string(      │
+2026-06-24T06:31:06.733978524Z [err]  │   181 │   │   │   │   │   config.entrypoint, config.from_pyproject           │
+2026-06-24T06:31:06.733981233Z [err]  │                                                                              │
+2026-06-24T06:31:06.733984588Z [err]  │   142 │   sys.path.insert(0, str(mod_data.extra_sys_path))                   │
+2026-06-24T06:31:06.733985493Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:143 in       │
+2026-06-24T06:31:06.733991567Z [err]  │ get_import_data                                                              │
+2026-06-24T06:31:06.733992290Z [err]  │ ❱ 143 │   use_app_name = get_app_name(mod_data=mod_data, app_name=app_name)  │
+2026-06-24T06:31:06.733996628Z [err]  │   144 │                                                                      │
+2026-06-24T06:31:06.734001561Z [err]  │   145 │   import_string = f"{mod_data.module_import_str}:{use_app_name}"     │
+2026-06-24T06:31:06.736099704Z [err]  │                                                                              │
+2026-06-24T06:31:06.736105058Z [err]  │ /mise/installs/python/3.13.13/lib/python3.13/importlib/__init__.py:88 in     │
+2026-06-24T06:31:06.736111895Z [err]  │    69 │   try:                                                               │
+2026-06-24T06:31:06.736112777Z [err]  │ import_module                                                                │
+2026-06-24T06:31:06.736118138Z [err]  │ ❱  70 │   │   mod = importlib.import_module(mod_data.module_import_str)      │
+2026-06-24T06:31:06.736123130Z [err]  │    71 │   except (ImportError, ValueError) as e:                             │
+2026-06-24T06:31:06.736124060Z [err]  │   146                                                                        │
+2026-06-24T06:31:06.736127703Z [err]  │    72 │   │   logger.error(f"Import error: {e}")                             │
+2026-06-24T06:31:06.736132253Z [err]  │    73 │   │   logger.warning(                                                │
+2026-06-24T06:31:06.736137501Z [err]  │                                                                              │
+2026-06-24T06:31:06.736141496Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:70 in        │
+2026-06-24T06:31:06.736144719Z [err]  │ get_app_name                                                                 │
+2026-06-24T06:31:06.736147956Z [err]  │                                                                              │
+2026-06-24T06:31:06.736150914Z [err]  │    67                                                                        │
+2026-06-24T06:31:06.736156610Z [err]  │    68 def get_app_name(*, mod_data: ModuleData, app_name: str | None = None) │
+2026-06-24T06:31:06.736160948Z [err]  │       -> str:                                                                │
+2026-06-24T06:31:06.737697883Z [err]  │                                                                              │
+2026-06-24T06:31:06.737701533Z [err]  │    85 │   │   │   if character != '.':                                       │
+2026-06-24T06:31:06.737704492Z [err]  │    86 │   │   │   │   break                                                  │
+2026-06-24T06:31:06.737707481Z [err]  │    87 │   │   │   level += 1                                                 │
+2026-06-24T06:31:06.737710201Z [err]  │ ❱  88 │   return _bootstrap._gcd_import(name[level:], package, level)        │
+2026-06-24T06:31:06.737713077Z [err]  │    89                                                                        │
+2026-06-24T06:31:06.737715929Z [err]  │    90                                                                        │
+2026-06-24T06:31:06.737718658Z [err]  │    91 _RELOADING = {}                                                        │
+2026-06-24T06:31:06.737721293Z [err]  │ in _gcd_import:1395                                                          │
+2026-06-24T06:31:06.737723975Z [err]  │ in _find_and_load:1360                                                       │
+2026-06-24T06:31:06.737728933Z [err]  │ in _find_and_load_unlocked:1331                                              │
+2026-06-24T06:31:06.737733035Z [err]  │ in _load_unlocked:935                                                        │
+2026-06-24T06:31:06.737737780Z [err]  │ in exec_module:1023                                                          │
+2026-06-24T06:31:06.737741223Z [err]  │ in _call_with_frames_removed:488                                             │
+2026-06-24T06:31:06.737747910Z [err]  │                                                                              │
+2026-06-24T06:31:06.737751732Z [err]  │ /app/src/main.py:4 in <module>                                               │
+2026-06-24T06:31:06.739275822Z [err]  │    6                                                                         │
+2026-06-24T06:31:06.739284374Z [err]  │                                                                              │
+2026-06-24T06:31:06.739285554Z [err]  │    7                                                                         │
+2026-06-24T06:31:06.739288986Z [err]  │    1 from contextlib import asynccontextmanager                              │
+2026-06-24T06:31:06.739293746Z [err]  ╰──────────────────────────────────────────────────────────────────────────────╯
+2026-06-24T06:31:06.739294140Z [err]  │    2                                                                         │
+2026-06-24T06:31:06.739299343Z [err]  ModuleNotFoundError: No module named 'routes'
+2026-06-24T06:31:06.739299710Z [err]  │    3 from fastapi import FastAPI                                             │
+2026-06-24T06:31:06.739303100Z [err]  │ ❱  4 from routes import router as landing_web                                │
+2026-06-24T06:31:06.739306233Z [err]  │    5 from routes import adaptador_supabase as db                             │
+2026-06-24T06:31:08.413587210Z [inf]  
+2026-06-24T06:31:08.413592204Z [inf]     FastAPI   Starting production server 🚀
+2026-06-24T06:31:08.413595492Z [inf]   
+2026-06-24T06:31:08.413598512Z [inf]               Searching for package file structure from directories with         
+2026-06-24T06:31:08.413601585Z [inf]               __init__.py files                                                  
+2026-06-24T06:31:08.420170097Z [inf]  ERROR    Import error: No module named 'routes'                                 
+2026-06-24T06:31:08.420178869Z [inf]  WARNING  Ensure all the package directories have an __init__.py file            
+2026-06-24T06:31:08.420183366Z [inf]  
+2026-06-24T06:31:08.519888722Z [err]  │   175 │   │   try:                                                           │
+2026-06-24T06:31:08.519895840Z [err]  ╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+2026-06-24T06:31:08.519898389Z [err]  │   176 │   │   │   # Resolve import data with priority: CLI path/app > config │
+2026-06-24T06:31:08.519903912Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:492 in run        │
+2026-06-24T06:31:08.519907129Z [err]  │                                                                              │
+2026-06-24T06:31:08.519909798Z [err]  │   489 │                                                                      │
+2026-06-24T06:31:08.519913544Z [err]  │   490 │   Otherwise, it uses the first [bold]FastAPI[/bold] app found in the │
+2026-06-24T06:31:08.519916810Z [err]  │       imported module or package.                                            │
+2026-06-24T06:31:08.519919619Z [err]  │   491 │   """                                                                │
+2026-06-24T06:31:08.519922287Z [err]  │ ❱ 492 │   _run(                                                              │
+2026-06-24T06:31:08.519925287Z [err]  │   493 │   │   path=path,                                                     │
+2026-06-24T06:31:08.519928084Z [err]  │   494 │   │   host=host,                                                     │
+2026-06-24T06:31:08.519930750Z [err]  │   495 │   │   port=port,                                                     │
+2026-06-24T06:31:08.519934255Z [err]  │                                                                              │
+2026-06-24T06:31:08.519936857Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:178 in _run       │
+2026-06-24T06:31:08.519939502Z [err]  │                                                                              │
+2026-06-24T06:31:08.521117747Z [err]  │       entrypoint > auto-discovery                                            │
+2026-06-24T06:31:08.521124451Z [err]  │   177 │   │   │   if path or app:                                            │
+2026-06-24T06:31:08.521128380Z [err]  │ ❱ 178 │   │   │   │   import_data = get_import_data(path=path, app_name=app) │
+2026-06-24T06:31:08.521132036Z [err]  │   179 │   │   │   elif config.entrypoint:                                    │
+2026-06-24T06:31:08.521137185Z [err]  │   180 │   │   │   │   import_data = get_import_data_from_import_string(      │
+2026-06-24T06:31:08.521141796Z [err]  │   181 │   │   │   │   │   config.entrypoint, config.from_pyproject           │
+2026-06-24T06:31:08.521146105Z [err]  │                                                                              │
+2026-06-24T06:31:08.521149659Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:143 in       │
+2026-06-24T06:31:08.521153162Z [err]  │ get_import_data                                                              │
+2026-06-24T06:31:08.521156662Z [err]  │                                                                              │
+2026-06-24T06:31:08.521159822Z [err]  │   140 │   │   raise FastAPICLIException(f"Path does not exist {path}")       │
+2026-06-24T06:31:08.521163251Z [err]  │   141 │   mod_data = get_module_data_from_path(path)                         │
+2026-06-24T06:31:08.521166443Z [err]  │   142 │   sys.path.insert(0, str(mod_data.extra_sys_path))                   │
+2026-06-24T06:31:08.521170141Z [err]  │ ❱ 143 │   use_app_name = get_app_name(mod_data=mod_data, app_name=app_name)  │
+2026-06-24T06:31:08.521173730Z [err]  │   144 │                                                                      │
+2026-06-24T06:31:08.521177659Z [err]  │   145 │   import_string = f"{mod_data.module_import_str}:{use_app_name}"     │
+2026-06-24T06:31:08.522816001Z [err]  │ import_module                                                                │
+2026-06-24T06:31:08.522825594Z [err]  │   146                                                                        │
+2026-06-24T06:31:08.522829995Z [err]  │                                                                              │
+2026-06-24T06:31:08.522834090Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:70 in        │
+2026-06-24T06:31:08.522838680Z [err]  │ get_app_name                                                                 │
+2026-06-24T06:31:08.522843586Z [err]  │                                                                              │
+2026-06-24T06:31:08.522848640Z [err]  │    67                                                                        │
+2026-06-24T06:31:08.522852747Z [err]  │    68 def get_app_name(*, mod_data: ModuleData, app_name: str | None = None) │
+2026-06-24T06:31:08.522857870Z [err]  │       -> str:                                                                │
+2026-06-24T06:31:08.522862284Z [err]  │    69 │   try:                                                               │
+2026-06-24T06:31:08.522866950Z [err]  │ ❱  70 │   │   mod = importlib.import_module(mod_data.module_import_str)      │
+2026-06-24T06:31:08.522871433Z [err]  │    71 │   except (ImportError, ValueError) as e:                             │
+2026-06-24T06:31:08.522874927Z [err]  │    72 │   │   logger.error(f"Import error: {e}")                             │
+2026-06-24T06:31:08.522878512Z [err]  │    73 │   │   logger.warning(                                                │
+2026-06-24T06:31:08.522882162Z [err]  │                                                                              │
+2026-06-24T06:31:08.522885103Z [err]  │ /mise/installs/python/3.13.13/lib/python3.13/importlib/__init__.py:88 in     │
+2026-06-24T06:31:08.524759313Z [err]  │                                                                              │
+2026-06-24T06:31:08.524766547Z [err]  │    85 │   │   │   if character != '.':                                       │
+2026-06-24T06:31:08.524771094Z [err]  │    86 │   │   │   │   break                                                  │
+2026-06-24T06:31:08.524774582Z [err]  │    87 │   │   │   level += 1                                                 │
+2026-06-24T06:31:08.524778835Z [err]  │ ❱  88 │   return _bootstrap._gcd_import(name[level:], package, level)        │
+2026-06-24T06:31:08.524783005Z [err]  │    89                                                                        │
+2026-06-24T06:31:08.524786163Z [err]  │    90                                                                        │
+2026-06-24T06:31:08.524789917Z [err]  │    91 _RELOADING = {}                                                        │
+2026-06-24T06:31:08.524793761Z [err]  │ in _gcd_import:1395                                                          │
+2026-06-24T06:31:08.524797426Z [err]  │ in _find_and_load:1360                                                       │
+2026-06-24T06:31:08.524800910Z [err]  │ in _find_and_load_unlocked:1331                                              │
+2026-06-24T06:31:08.524804224Z [err]  │ in _load_unlocked:935                                                        │
+2026-06-24T06:31:08.524807587Z [err]  │ in exec_module:1023                                                          │
+2026-06-24T06:31:08.524810866Z [err]  │ in _call_with_frames_removed:488                                             │
+2026-06-24T06:31:08.524814154Z [err]  │                                                                              │
+2026-06-24T06:31:08.524817450Z [err]  │ /app/src/main.py:4 in <module>                                               │
+2026-06-24T06:31:08.526436943Z [err]  │                                                                              │
+2026-06-24T06:31:08.526445640Z [err]  │    1 from contextlib import asynccontextmanager                              │
+2026-06-24T06:31:08.526450148Z [err]  │    2                                                                         │
+2026-06-24T06:31:08.526453905Z [err]  │    3 from fastapi import FastAPI                                             │
+2026-06-24T06:31:08.526457489Z [err]  │ ❱  4 from routes import router as landing_web                                │
+2026-06-24T06:31:08.526461776Z [err]  │    5 from routes import adaptador_supabase as db                             │
+2026-06-24T06:31:08.526465910Z [err]  │    6                                                                         │
+2026-06-24T06:31:08.526469622Z [err]  │    7                                                                         │
+2026-06-24T06:31:08.526473985Z [err]  ╰──────────────────────────────────────────────────────────────────────────────╯
+2026-06-24T06:31:08.526477438Z [err]  ModuleNotFoundError: No module named 'routes'
+2026-06-24T06:31:10.436289513Z [inf]  WARNING  Ensure all the package directories have an __init__.py file            
+2026-06-24T06:31:10.436297148Z [inf]  
+2026-06-24T06:31:10.436301939Z [err]  ╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+2026-06-24T06:31:10.436306486Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:492 in run        │
+2026-06-24T06:31:10.436310114Z [err]  │                                                                              │
+2026-06-24T06:31:10.436313845Z [err]  │   489 │                                                                      │
+2026-06-24T06:31:10.436316992Z [err]  │   490 │   Otherwise, it uses the first [bold]FastAPI[/bold] app found in the │
+2026-06-24T06:31:10.436320156Z [err]  │       imported module or package.                                            │
+2026-06-24T06:31:10.436323868Z [err]  │   491 │   """                                                                │
+2026-06-24T06:31:10.436327652Z [err]  │ ❱ 492 │   _run(                                                              │
+2026-06-24T06:31:10.436331338Z [err]  │   493 │   │   path=path,                                                     │
+2026-06-24T06:31:10.436334796Z [err]  │   494 │   │   host=host,                                                     │
+2026-06-24T06:31:10.436396967Z [inf]  
+2026-06-24T06:31:10.436400470Z [inf]     FastAPI   Starting production server 🚀
+2026-06-24T06:31:10.436403266Z [inf]   
+2026-06-24T06:31:10.436406047Z [inf]               Searching for package file structure from directories with         
+2026-06-24T06:31:10.436409301Z [inf]               __init__.py files                                                  
+2026-06-24T06:31:10.436412047Z [inf]  ERROR    Import error: No module named 'routes'                                 
+2026-06-24T06:31:10.437153503Z [err]  │   176 │   │   │   # Resolve import data with priority: CLI path/app > config │
+2026-06-24T06:31:10.437159889Z [err]  │       entrypoint > auto-discovery                                            │
+2026-06-24T06:31:10.437163529Z [err]  │   177 │   │   │   if path or app:                                            │
+2026-06-24T06:31:10.437166691Z [err]  │ ❱ 178 │   │   │   │   import_data = get_import_data(path=path, app_name=app) │
+2026-06-24T06:31:10.437170960Z [err]  │   179 │   │   │   elif config.entrypoint:                                    │
+2026-06-24T06:31:10.437174521Z [err]  │   180 │   │   │   │   import_data = get_import_data_from_import_string(      │
+2026-06-24T06:31:10.437177981Z [err]  │   181 │   │   │   │   │   config.entrypoint, config.from_pyproject           │
+2026-06-24T06:31:10.437182078Z [err]  │                                                                              │
+2026-06-24T06:31:10.437184903Z [err]  │   495 │   │   port=port,                                                     │
+2026-06-24T06:31:10.437187195Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:143 in       │
+2026-06-24T06:31:10.437189564Z [err]  │                                                                              │
+2026-06-24T06:31:10.437192261Z [err]  │ get_import_data                                                              │
+2026-06-24T06:31:10.437194336Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:178 in _run       │
+2026-06-24T06:31:10.437198352Z [err]  │                                                                              │
+2026-06-24T06:31:10.437200701Z [err]  │                                                                              │
+2026-06-24T06:31:10.437203546Z [err]  │   175 │   │   try:                                                           │
+2026-06-24T06:31:10.438515964Z [err]  │    69 │   try:                                                               │
+2026-06-24T06:31:10.438519829Z [err]  │ ❱  70 │   │   mod = importlib.import_module(mod_data.module_import_str)      │
+2026-06-24T06:31:10.438523689Z [err]  │ get_app_name                                                                 │
+2026-06-24T06:31:10.438529800Z [err]  │                                                                              │
+2026-06-24T06:31:10.438533795Z [err]  │    67                                                                        │
+2026-06-24T06:31:10.438537059Z [err]  │    68 def get_app_name(*, mod_data: ModuleData, app_name: str | None = None) │
+2026-06-24T06:31:10.438540350Z [err]  │       -> str:                                                                │
+2026-06-24T06:31:10.438551379Z [err]  │   140 │   │   raise FastAPICLIException(f"Path does not exist {path}")       │
+2026-06-24T06:31:10.438559905Z [err]  │   141 │   mod_data = get_module_data_from_path(path)                         │
+2026-06-24T06:31:10.438563951Z [err]  │   142 │   sys.path.insert(0, str(mod_data.extra_sys_path))                   │
+2026-06-24T06:31:10.438567970Z [err]  │ ❱ 143 │   use_app_name = get_app_name(mod_data=mod_data, app_name=app_name)  │
+2026-06-24T06:31:10.438571940Z [err]  │   144 │                                                                      │
+2026-06-24T06:31:10.438575284Z [err]  │   145 │   import_string = f"{mod_data.module_import_str}:{use_app_name}"     │
+2026-06-24T06:31:10.438579860Z [err]  │   146                                                                        │
+2026-06-24T06:31:10.438583605Z [err]  │                                                                              │
+2026-06-24T06:31:10.438587669Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:70 in        │
+2026-06-24T06:31:10.440041121Z [err]  │    71 │   except (ImportError, ValueError) as e:                             │
+2026-06-24T06:31:10.440048292Z [err]  │ ❱  88 │   return _bootstrap._gcd_import(name[level:], package, level)        │
+2026-06-24T06:31:10.440048387Z [err]  │    72 │   │   logger.error(f"Import error: {e}")                             │
+2026-06-24T06:31:10.440052247Z [err]  │    73 │   │   logger.warning(                                                │
+2026-06-24T06:31:10.440054730Z [err]  │    89                                                                        │
+2026-06-24T06:31:10.440057164Z [err]  │                                                                              │
+2026-06-24T06:31:10.440061487Z [err]  │    90                                                                        │
+2026-06-24T06:31:10.440062875Z [err]  │ /mise/installs/python/3.13.13/lib/python3.13/importlib/__init__.py:88 in     │
+2026-06-24T06:31:10.440067902Z [err]  │ import_module                                                                │
+2026-06-24T06:31:10.440070261Z [err]  │    91 _RELOADING = {}                                                        │
+2026-06-24T06:31:10.440072552Z [err]  │                                                                              │
+2026-06-24T06:31:10.440077491Z [err]  │ in _gcd_import:1395                                                          │
+2026-06-24T06:31:10.440077756Z [err]  │    85 │   │   │   if character != '.':                                       │
+2026-06-24T06:31:10.440084904Z [err]  │ in _find_and_load:1360                                                       │
+2026-06-24T06:31:10.440085634Z [err]  │    86 │   │   │   │   break                                                  │
+2026-06-24T06:31:10.440089838Z [err]  │    87 │   │   │   level += 1                                                 │
+2026-06-24T06:31:10.441525796Z [err]  │    5 from routes import adaptador_supabase as db                             │
+2026-06-24T06:31:10.441532492Z [err]  │    6                                                                         │
+2026-06-24T06:31:10.441533471Z [err]  │ in _find_and_load_unlocked:1331                                              │
+2026-06-24T06:31:10.441536992Z [err]  │    7                                                                         │
+2026-06-24T06:31:10.441542661Z [err]  │ in _load_unlocked:935                                                        │
+2026-06-24T06:31:10.441542721Z [err]  ╰──────────────────────────────────────────────────────────────────────────────╯
+2026-06-24T06:31:10.441548313Z [err]  │ in exec_module:1023                                                          │
+2026-06-24T06:31:10.441552223Z [err]  │ in _call_with_frames_removed:488                                             │
+2026-06-24T06:31:10.441556399Z [err]  │                                                                              │
+2026-06-24T06:31:10.441560856Z [err]  │ /app/src/main.py:4 in <module>                                               │
+2026-06-24T06:31:10.441565014Z [err]  │                                                                              │
+2026-06-24T06:31:10.441569438Z [err]  │    1 from contextlib import asynccontextmanager                              │
+2026-06-24T06:31:10.441573338Z [err]  │    2                                                                         │
+2026-06-24T06:31:10.441577483Z [err]  │    3 from fastapi import FastAPI                                             │
+2026-06-24T06:31:10.441581293Z [err]  │ ❱  4 from routes import router as landing_web                                │
+2026-06-24T06:31:10.442938877Z [err]  ModuleNotFoundError: No module named 'routes'
+2026-06-24T06:31:12.084244974Z [inf]  
+2026-06-24T06:31:12.084248964Z [inf]     FastAPI   Starting production server 🚀
+2026-06-24T06:31:12.085941903Z [inf]   
+2026-06-24T06:31:12.085948693Z [inf]               Searching for package file structure from directories with         
+2026-06-24T06:31:12.085952910Z [inf]               __init__.py files                                                  
+2026-06-24T06:31:12.092280046Z [inf]  ERROR    Import error: No module named 'routes'                                 
+2026-06-24T06:31:12.092285053Z [inf]  WARNING  Ensure all the package directories have an __init__.py file            
+2026-06-24T06:31:12.092288358Z [inf]  
+2026-06-24T06:31:12.426004732Z [err]  ╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+2026-06-24T06:31:12.426007983Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:492 in run        │
+2026-06-24T06:31:12.426011929Z [err]  │                                                                              │
+2026-06-24T06:31:12.426015763Z [err]  │   489 │                                                                      │
+2026-06-24T06:31:12.426022158Z [err]  │   490 │   Otherwise, it uses the first [bold]FastAPI[/bold] app found in the │
+2026-06-24T06:31:12.426026340Z [err]  │       imported module or package.                                            │
+2026-06-24T06:31:12.426030064Z [err]  │   491 │   """                                                                │
+2026-06-24T06:31:12.426033616Z [err]  │ ❱ 492 │   _run(                                                              │
+2026-06-24T06:31:12.426037430Z [err]  │   493 │   │   path=path,                                                     │
+2026-06-24T06:31:12.426041112Z [err]  │   494 │   │   host=host,                                                     │
+2026-06-24T06:31:12.426044730Z [err]  │   495 │   │   port=port,                                                     │
+2026-06-24T06:31:12.426049079Z [err]  │                                                                              │
+2026-06-24T06:31:12.426052701Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/cli.py:178 in _run       │
+2026-06-24T06:31:12.426058067Z [err]  │                                                                              │
+2026-06-24T06:31:12.426061400Z [err]  │   175 │   │   try:                                                           │
+2026-06-24T06:31:12.426064528Z [err]  │   176 │   │   │   # Resolve import data with priority: CLI path/app > config │
+2026-06-24T06:31:12.427250535Z [err]  │       entrypoint > auto-discovery                                            │
+2026-06-24T06:31:12.427254787Z [err]  │   145 │   import_string = f"{mod_data.module_import_str}:{use_app_name}"     │
+2026-06-24T06:31:12.427257167Z [err]  │   177 │   │   │   if path or app:                                            │
+2026-06-24T06:31:12.427261158Z [err]  │ ❱ 178 │   │   │   │   import_data = get_import_data(path=path, app_name=app) │
+2026-06-24T06:31:12.427264469Z [err]  │   179 │   │   │   elif config.entrypoint:                                    │
+2026-06-24T06:31:12.427267681Z [err]  │   180 │   │   │   │   import_data = get_import_data_from_import_string(      │
+2026-06-24T06:31:12.427271193Z [err]  │   181 │   │   │   │   │   config.entrypoint, config.from_pyproject           │
+2026-06-24T06:31:12.427275155Z [err]  │                                                                              │
+2026-06-24T06:31:12.427278870Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:143 in       │
+2026-06-24T06:31:12.427282033Z [err]  │ get_import_data                                                              │
+2026-06-24T06:31:12.427285191Z [err]  │                                                                              │
+2026-06-24T06:31:12.427456487Z [err]  │   140 │   │   raise FastAPICLIException(f"Path does not exist {path}")       │
+2026-06-24T06:31:12.427460618Z [err]  │   141 │   mod_data = get_module_data_from_path(path)                         │
+2026-06-24T06:31:12.427464378Z [err]  │   142 │   sys.path.insert(0, str(mod_data.extra_sys_path))                   │
+2026-06-24T06:31:12.427467633Z [err]  │ ❱ 143 │   use_app_name = get_app_name(mod_data=mod_data, app_name=app_name)  │
+2026-06-24T06:31:12.427473208Z [err]  │   144 │                                                                      │
+2026-06-24T06:31:12.428844515Z [err]  │   146                                                                        │
+2026-06-24T06:31:12.428849248Z [err]  │                                                                              │
+2026-06-24T06:31:12.428852972Z [err]  │ /app/.venv/lib/python3.13/site-packages/fastapi_cli/discover.py:70 in        │
+2026-06-24T06:31:12.428856849Z [err]  │ get_app_name                                                                 │
+2026-06-24T06:31:12.428860289Z [err]  │                                                                              │
+2026-06-24T06:31:12.428863955Z [err]  │    67                                                                        │
+2026-06-24T06:31:12.428867527Z [err]  │    68 def get_app_name(*, mod_data: ModuleData, app_name: str | None = None) │
+2026-06-24T06:31:12.428871002Z [err]  │       -> str:                                                                │
+2026-06-24T06:31:12.428875272Z [err]  │    69 │   try:                                                               │
+2026-06-24T06:31:12.428879757Z [err]  │ ❱  70 │   │   mod = importlib.import_module(mod_data.module_import_str)      │
+2026-06-24T06:31:12.428883608Z [err]  │    71 │   except (ImportError, ValueError) as e:                             │
+2026-06-24T06:31:12.428887429Z [err]  │    72 │   │   logger.error(f"Import error: {e}")                             │
+2026-06-24T06:31:12.428891030Z [err]  │    73 │   │   logger.warning(                                                │
+2026-06-24T06:31:12.428894693Z [err]  │                                                                              │
+2026-06-24T06:31:12.428897889Z [err]  │ /mise/installs/python/3.13.13/lib/python3.13/importlib/__init__.py:88 in     │
+2026-06-24T06:31:12.428901806Z [err]  │ import_module                                                                │
+2026-06-24T06:31:12.430494741Z [err]  │                                                                              │
+2026-06-24T06:31:12.430501919Z [err]  │    85 │   │   │   if character != '.':                                       │
+2026-06-24T06:31:12.430505997Z [err]  │    86 │   │   │   │   break                                                  │
+2026-06-24T06:31:12.430514150Z [err]  │    87 │   │   │   level += 1                                                 │
+2026-06-24T06:31:12.430517807Z [err]  │ ❱  88 │   return _bootstrap._gcd_import(name[level:], package, level)        │
+2026-06-24T06:31:12.430521434Z [err]  │    89                                                                        │
+2026-06-24T06:31:12.430524852Z [err]  │    90                                                                        │
+2026-06-24T06:31:12.430528530Z [err]  │    91 _RELOADING = {}                                                        │
+2026-06-24T06:31:12.430532239Z [err]  │ in _gcd_import:1395                                                          │
+2026-06-24T06:31:12.430535706Z [err]  │ in _find_and_load:1360                                                       │
+2026-06-24T06:31:12.430540016Z [err]  │ in _find_and_load_unlocked:1331                                              │
+2026-06-24T06:31:12.430543591Z [err]  │ in _load_unlocked:935                                                        │
+2026-06-24T06:31:12.430547879Z [err]  │ in exec_module:1023                                                          │
+2026-06-24T06:31:12.430551253Z [err]  │ in _call_with_frames_removed:488                                             │
+2026-06-24T06:31:12.430554395Z [err]  │                                                                              │
+2026-06-24T06:31:12.430557595Z [err]  │ /app/src/main.py:4 in <module>                                               │
+2026-06-24T06:31:12.432213046Z [err]  ╰──────────────────────────────────────────────────────────────────────────────╯
+2026-06-24T06:31:12.432219969Z [err]  ModuleNotFoundError: No module named 'routes'
+2026-06-24T06:31:12.432239959Z [err]  │                                                                              │
+2026-06-24T06:31:12.432249085Z [err]  │    1 from contextlib import asynccontextmanager                              │
+2026-06-24T06:31:12.432253153Z [err]  │    2                                                                         │
+2026-06-24T06:31:12.432256807Z [err]  │    3 from fastapi import FastAPI                                             │
+2026-06-24T06:31:12.432262757Z [err]  │ ❱  4 from routes import router as landing_web                                │
+2026-06-24T06:31:12.432266467Z [err]  │    5 from routes import adaptador_supabase as db                             │
+2026-06-24T06:31:12.432269660Z [err]  │    6                                                                         │
+2026-06-24T06:31:12.432273402Z [err]  │    7                                                                         │
