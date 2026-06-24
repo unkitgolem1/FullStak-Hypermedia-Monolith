@@ -5,6 +5,7 @@ from fastapi.responses import HTMLResponse
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+from markdown import markdown as md_convertir
 
 from database import SupabaseAdaptador, Repository_documento
 
@@ -44,3 +45,26 @@ async def obtener_documentos(
         name="documentos_fragmento.html",
         context={"documentos": documentos},
     )
+
+
+@router.get("/api/contenido-md/{documento_id}", response_class=HTMLResponse)
+async def contenido_md(
+    request: Request,
+    documento_id: int,
+    db: Repository_documento = Depends(obtener_db),
+):
+    doc = await db.obtener_documento_por_id(documento_id)
+    if not doc or not doc.get("content_md"):
+        return "<p class='text-slate-400 text-center py-8 font-mono'>— Sin contenido disponible —</p>"
+
+    html = md_convertir(
+        doc["content_md"],
+        extensions=["fenced_code", "codehilite"],
+    )
+    titulo = doc["titulo"]
+    return f"""
+<h2 class="text-xl font-bold text-slate-100 font-mono mb-4 tracking-tight">{titulo}</h2>
+<div class="markdown-body text-sm leading-relaxed">
+    {html}
+</div>
+"""

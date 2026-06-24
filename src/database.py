@@ -5,6 +5,7 @@ import ssl
 
 class Repository_documento(Protocol):
     async def obtener_todos_documentos(self) -> List[Dict[str, Any]]: ...
+    async def obtener_documento_por_id(self, documento_id: int) -> Dict[str, Any] | None: ...
 
 
 class SupabaseAdaptador:
@@ -74,4 +75,22 @@ class SupabaseAdaptador:
             except Exception as e:
                 print(f"❌ Error al consultar los documentos: {e}")
                 # Dependiendo de tu manejo de errores, puedes lanzar la excepción o devolver lista vacía
+                raise e
+
+    async def obtener_documento_por_id(self, documento_id: int) -> Dict[str, Any] | None:
+        if not self.pool:
+            raise RuntimeError(
+                "Error: El pool de base de datos no ha sido inicializado. Ejecuta connect() primero."
+            )
+        async with self.pool.acquire() as conexion:
+            try:
+                query = """
+                    SELECT id, titulo, descripcion, imagen, content_md, fecha_creacion
+                    FROM documentos
+                    WHERE id = $1;
+                """
+                registro = await conexion.fetchrow(query, documento_id)
+                return dict(registro) if registro else None
+            except Exception as e:
+                print(f"❌ Error al consultar el documento {documento_id}: {e}")
                 raise e
