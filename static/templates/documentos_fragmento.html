@@ -1,18 +1,26 @@
 {% for doc in documentos %}
-<div class="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.33%-16px)] lg:w-64 p-6 rounded-2xl flex flex-col justify-between transition-all duration-300 hover:-translate-y-1
+<div class="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.33%-16px)] lg:w-[calc(25%-18px)] xl:w-72 p-4 sm:p-6 rounded-2xl flex flex-col justify-between transition-all duration-300 hover:-translate-y-1
             bg-[#151f32]
             shadow-[-6px_-6px_16px_rgba(255,255,255,0.03),8px_8px_20px_rgba(2,6,23,0.7)]">
     
     <div>
-        <h3 class="font-bold text-lg mb-2 text-slate-100 font-mono tracking-tight">{{ doc.titulo }}</h3>
+        {% if doc.imagen %}
+        <div class="overflow-hidden rounded-xl mb-3 sm:mb-4">
+            <img src="{{ doc.imagen }}" alt="{{ doc.titulo }}"
+                 class="w-full object-cover"
+                 style="aspect-ratio: 1.618" />
+        </div>
+        {% endif %}
+
+        <h3 class="font-bold text-base sm:text-lg mb-2 text-slate-100 font-mono tracking-tight">{{ doc.titulo }}</h3>
         
         {% if doc.fecha_creacion %}
-        <p class="text-blue-400 text-xs mb-4 font-mono font-bold">{{ doc.fecha_creacion }}</p>
+        <p class="text-blue-400 text-[10px] sm:text-xs mb-3 sm:mb-4 font-mono font-bold">{{ doc.fecha_creacion }}</p>
         {% endif %}
         
-        <div class="mt-4 p-4 rounded-xl bg-[#0d1424] border border-black/20
+        <div class="mt-4 p-3 sm:p-4 rounded-xl bg-[#0d1424] border border-black/20
                     shadow-[inset_4px_4px_8px_rgba(0,0,0,0.5),inset_-2px_-2px_6px_rgba(255,255,255,0.02)]">
-            <p class="text-slate-400 text-xs line-clamp-4 leading-relaxed">
+            <p class="text-slate-400 text-[11px] sm:text-xs line-clamp-4 leading-relaxed">
                 {{ doc.descripcion or "—" }}
             </p>
         </div>
@@ -21,7 +29,7 @@
     <a href="{{ doc.url_github or '#' }}" 
        target="_blank" 
        rel="noopener noreferrer"
-       class="mt-6 block text-center text-[10px] py-3 rounded-xl text-white font-black uppercase tracking-widest transition-all duration-150
+       class="mt-5 sm:mt-6 block text-center text-[9px] sm:text-[10px] py-2.5 sm:py-3 rounded-xl text-white font-black uppercase tracking-widest transition-all duration-150
               bg-[#1a263d] border border-white/5
               shadow-[3px_3px_6px_rgba(0,0,0,0.4),-2px_-2px_6px_rgba(255,255,255,0.02)] 
               hover:bg-[#1e2c46]
