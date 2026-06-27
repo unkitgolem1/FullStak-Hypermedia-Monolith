@@ -56,6 +56,15 @@
             100% { opacity: 1; }
         }
 
+        /* ── Bounce global para texto pixelart (excluye hero) ── */
+        [style*="Press Start 2P"]:not(#hero *) {
+            animation: pixelBounce 1.8s ease-in-out infinite;
+        }
+        @keyframes pixelBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
         @keyframes slideInOut {
             0% { transform: translateY(100%); opacity: 0; }
             30% { transform: translateY(0); opacity: 1; }
