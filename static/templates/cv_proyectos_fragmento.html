@@ -1,9 +1,10 @@
 {% if proyectos %}
-<div id="cascade-proyectos" class="relative overflow-hidden" style="height:calc(3 * 2.5rem + 2 * 0.5rem)">
-    <div class="flex flex-col gap-2 absolute inset-x-0" id="cascade-track">
+{% set VISIBLES = 3 %}
+<div id="cascade-wrap" class="relative overflow-hidden">
+    <div class="flex flex-col gap-2" id="cascade-track">
         {% for proy in proyectos %}
         <div onclick="this.querySelector('a').click()"
-             class="group cascade-item flex items-center gap-2 px-3 py-2 rounded-xl cursor-pointer transition-all duration-300
+             class="group cascade-item flex items-center gap-2 px-3 py-2 rounded-xl cursor-pointer transition-all duration-300 w-full
                     bg-[rgba(255,255,255,0.04)] backdrop-blur-[6px]
                     border border-[rgba(255,255,255,0.06)]
                     hover:border-[rgba(255,255,255,0.15)]
@@ -23,7 +24,7 @@
                  loading="lazy" />
             {% endif %}
 
-            <span class="text-[11px] font-mono text-slate-300 font-semibold truncate group-hover:text-white transition-colors">
+            <span class="text-[11px] font-mono text-slate-300 font-semibold truncate group-hover:text-white transition-colors min-w-0">
                 {{ proy.titulo }}
             </span>
         </div>
@@ -33,17 +34,22 @@
 
 <script>
 (function() {
+    var wrap = document.getElementById('cascade-wrap');
     var track = document.getElementById('cascade-track');
-    if (!track) return;
+    if (!wrap || !track) return;
     var items = track.querySelectorAll('.cascade-item');
-    if (items.length <= 3) return;
+    if (items.length === 0) return;
 
-    for (var i = 0; i < 3; i++) {
+    var VISIBLES = 3;
+    var h = items[0].offsetHeight + 8;
+    wrap.style.height = (VISIBLES * h) + 'px';
+
+    if (items.length <= VISIBLES) return;
+
+    for (var i = 0; i < VISIBLES; i++) {
         track.appendChild(items[i].cloneNode(true));
     }
 
-    var all = track.querySelectorAll('.cascade-item');
-    var h = all[0].offsetHeight + 8;
     var idx = 0;
     var origCount = items.length;
 
