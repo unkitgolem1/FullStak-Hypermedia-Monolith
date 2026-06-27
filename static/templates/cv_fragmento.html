@@ -1,0 +1,171 @@
+<div class="w-full grid grid-cols-1 md:grid-cols-12 gap-4">
+
+    <!-- Header -->
+    <div class="md:col-span-12 p-5 sm:p-7 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4 transition-all duration-300
+                bg-[#151f32]
+                shadow-[-6px_-6px_16px_rgba(255,255,255,0.03),8px_8px_20px_rgba(2,6,23,0.7)]">
+        <div>
+            <h2 class="text-xl md:text-2xl font-bold text-slate-100 font-mono tracking-tight">Daniel Marín Estrada</h2>
+            <p class="text-sm text-slate-400 font-mono mt-1">Systems · Architecture · AI · Security</p>
+            <p class="text-xs text-slate-500 font-mono mt-1">IT &amp; Cybersecurity — Entrepreneur — Neovim</p>
+        </div>
+        <div class="text-left md:text-right">
+            <p class="text-[10px] font-mono uppercase tracking-[0.15em] text-slate-500">En línea</p>
+            <p class="text-sm text-emerald-400 font-mono mt-1">danielmariestrada.xyz</p>
+        </div>
+    </div>
+
+    <!-- About -->
+    <div class="md:col-span-12 p-5 sm:p-7 rounded-2xl transition-all duration-300
+                bg-[#151f32]
+                shadow-[-6px_-6px_16px_rgba(255,255,255,0.03),8px_8px_20px_rgba(2,6,23,0.7)]">
+        <h3 class="text-base md:text-lg font-bold text-slate-100 font-mono mb-3 tracking-tight">Quién soy</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">Construyo sistemas desde cero. Estudié <strong class="text-slate-200">TIC y Ciberseguridad</strong> y aplico <strong class="text-slate-200">Clean Architecture, DDD</strong> y pruebas automatizadas en todo lo que hago. Stack principal: <strong class="text-slate-200">Python, PostgreSQL, HTMX, TailwindCSS</strong>. Pero más que el stack: creo en <strong class="text-slate-200">sistemas con propósito</strong> — que resuelven problemas reales y envejecen bien.</p>
+    </div>
+
+    <!-- Roles -->
+    <div class="md:col-span-5 p-5 sm:p-7 rounded-2xl transition-all duration-300
+                bg-[#151f32]
+                shadow-[-6px_-6px_16px_rgba(255,255,255,0.03),8px_8px_20px_rgba(2,6,23,0.7)]">
+        <h3 class="text-base md:text-lg font-bold text-slate-100 font-mono mb-4 tracking-tight">Proyectos <span class="text-emerald-400">·</span> {#cargado desde db#}</h3>
+        <div hx-get="/api/cv-proyectos" hx-trigger="load" hx-swap="innerHTML">
+            <p class="text-slate-500 text-sm font-mono text-center py-4">Cargando proyectos...</p>
+        </div>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="md:col-span-7 p-5 sm:p-7 rounded-2xl transition-all duration-300
+                bg-[#151f32]
+                shadow-[-6px_-6px_16px_rgba(255,255,255,0.03),8px_8px_20px_rgba(2,6,23,0.7)]">
+        <h3 class="text-base md:text-lg font-bold text-slate-100 font-mono mb-4 tracking-tight">Stack técnico</h3>
+
+        <div class="mb-4">
+            <p class="text-[10px] font-mono uppercase tracking-[0.1em] text-slate-500 mb-2">Core</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-emerald-950/30 border border-emerald-500/30 text-emerald-400">Python</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-emerald-950/30 border border-emerald-500/30 text-emerald-400">PostgreSQL</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-emerald-950/30 border border-emerald-500/30 text-emerald-400">HTMX</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-emerald-950/30 border border-emerald-500/30 text-emerald-400">TailwindCSS</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">SQL</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">REST APIs</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Webhooks</span>
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <p class="text-[10px] font-mono uppercase tracking-[0.1em] text-slate-500 mb-2">Testing</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">pytest</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Playwright</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Selenium</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Unitarias</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Integración</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">E2E</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">CI/CD</span>
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <p class="text-[10px] font-mono uppercase tracking-[0.1em] text-slate-500 mb-2">Infra &amp; Datos</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Migraciones</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Constraints</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Cloud</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">On-premise</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Secrets Mgmt</span>
+            </div>
+        </div>
+
+        <div>
+            <p class="text-[10px] font-mono uppercase tracking-[0.1em] text-slate-500 mb-2">Herramientas</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Neovim</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Linux</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Git</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Docker</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Architecture & Methodology -->
+    <div class="md:col-span-12 p-5 sm:p-7 rounded-2xl transition-all duration-300
+                bg-[#151f32]
+                shadow-[-6px_-6px_16px_rgba(255,255,255,0.03),8px_8px_20px_rgba(2,6,23,0.7)]">
+        <h3 class="text-base md:text-lg font-bold text-slate-100 font-mono mb-4 tracking-tight">Arquitectura y metodología</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-[#0d1424] border border-black/20 shadow-[inset_4px_4px_8px_rgba(0,0,0,0.5),inset_-2px_-2px_6px_rgba(255,255,255,0.02)]">
+                <p class="text-[10px] font-mono uppercase tracking-[0.1em] text-slate-500 mb-2">Patrones</p>
+                <p class="text-sm text-slate-400">Clean Architecture · DDD · Repository Pattern · Dependency Inversion · Capas</p>
+            </div>
+            <div class="p-4 rounded-xl bg-[#0d1424] border border-black/20 shadow-[inset_4px_4px_8px_rgba(0,0,0,0.5),inset_-2px_-2px_6px_rgba(255,255,255,0.02)]">
+                <p class="text-[10px] font-mono uppercase tracking-[0.1em] text-slate-500 mb-2">Calidad</p>
+                <p class="text-sm text-slate-400">Unitarias · Integración · E2E · Fixtures · Mocks · Evaluation harnesses · Benchmarks</p>
+            </div>
+            <div class="p-4 rounded-xl bg-[#0d1424] border border-black/20 shadow-[inset_4px_4px_8px_rgba(0,0,0,0.5),inset_-2px_-2px_6px_rgba(255,255,255,0.02)]">
+                <p class="text-[10px] font-mono uppercase tracking-[0.1em] text-slate-500 mb-2">Documentación</p>
+                <p class="text-sm text-slate-400">Arc42 · C4 Model · Diagramas de arquitectura · Documentación viva</p>
+            </div>
+            <div class="p-4 rounded-xl bg-[#0d1424] border border-black/20 shadow-[inset_4px_4px_8px_rgba(0,0,0,0.5),inset_-2px_-2px_6px_rgba(255,255,255,0.02)]">
+                <p class="text-[10px] font-mono uppercase tracking-[0.1em] text-slate-500 mb-2">Web</p>
+                <p class="text-sm text-slate-400">Core Web Vitals · Structured Data · SEO · Performance · Lazy loading · Caching</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- More Technologies -->
+    <div class="md:col-span-5 p-5 sm:p-7 rounded-2xl transition-all duration-300
+                bg-[#151f32]
+                shadow-[-6px_-6px_16px_rgba(255,255,255,0.03),8px_8px_20px_rgba(2,6,23,0.7)]">
+        <h3 class="text-base md:text-lg font-bold text-slate-100 font-mono mb-4 tracking-tight">Más tecnologías</h3>
+        <div class="flex flex-wrap gap-2">
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">TypeScript</span>
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">React</span>
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Node.js</span>
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">PHP</span>
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Java</span>
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">JUnit</span>
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Jest</span>
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Cypress</span>
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Vitest</span>
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">WordPress</span>
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Shopify</span>
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Webflow</span>
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Joomla</span>
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">jQuery</span>
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">MySQL</span>
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Zapier</span>
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300">Make</span>
+        </div>
+    </div>
+
+    <!-- Soft Skills -->
+    <div class="md:col-span-7 p-5 sm:p-7 rounded-2xl transition-all duration-300
+                bg-[#151f32]
+                shadow-[-6px_-6px_16px_rgba(255,255,255,0.03),8px_8px_20px_rgba(2,6,23,0.7)]">
+        <h3 class="text-base md:text-lg font-bold text-slate-100 font-mono mb-3 tracking-tight">Forma de trabajar</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">No creo en el código por el código. Creo en <strong class="text-slate-200">sistemas con propósito</strong>. Antes de escribir una línea diseño la estructura: <strong class="text-slate-200">capas, flujos, validación</strong>. Pruebas no son un lujo — son la única forma de dormir tranquilo.</p>
+        <p class="text-sm text-slate-500 leading-relaxed mt-4">Lo que me define: escuchar, entender la necesidad, proponer una solución, dar seguimiento. <strong class="text-slate-300">No vendo por vender. Escucho, entiendo, resuelvo.</strong></p>
+        <div class="flex flex-wrap gap-2 mt-4">
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg border border-emerald-500/20 text-emerald-400 bg-emerald-950/20">Resolución de problemas</span>
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg border border-emerald-500/20 text-emerald-400 bg-emerald-950/20">Pensamiento estructurado</span>
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg border border-emerald-500/20 text-emerald-400 bg-emerald-950/20">Aprendizaje rápido</span>
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg border border-emerald-500/20 text-emerald-400 bg-emerald-950/20">Ejecución</span>
+        </div>
+    </div>
+
+    <!-- Closing -->
+    <div class="md:col-span-12 p-5 sm:p-7 rounded-2xl transition-all duration-300
+                bg-[#151f32]
+                shadow-[-6px_-6px_16px_rgba(255,255,255,0.03),8px_8px_20px_rgba(2,6,23,0.7)]">
+        <h3 class="text-base md:text-lg font-bold text-slate-100 font-mono mb-3 tracking-tight">Una última cosa</h3>
+        <p class="text-sm text-slate-400 italic leading-relaxed mb-4" style="font-family:'Georgia',serif;">
+            "El que domina el agua no lucha contra la corriente — la usa para llegar más lejos."
+        </p>
+        <p class="text-sm text-slate-400 leading-relaxed">No importa el rol ni la empresa. El principio es el mismo: <strong class="text-slate-200">entender el problema, diseñar la solución, ejecutar con excelencia</strong>. Mi stack cambia según lo que el problema necesita. Lo que no cambia es <strong class="text-slate-200">cómo pienso, cómo estructuro y cómo entrego</strong>.</p>
+    </div>
+
+    <div class="md:col-span-12 text-center py-4">
+        <p class="text-xs font-mono text-slate-600 tracking-wider">danielmariestrada.xyz</p>
+    </div>
+
+</div>

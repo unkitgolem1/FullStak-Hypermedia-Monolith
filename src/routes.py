@@ -32,18 +32,39 @@ async def principal_route(request: Request):
     )
 
 
+@router.get("/api/cv", response_class=HTMLResponse)
+async def cv_fragmento(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="cv_fragmento.html",
+    )
+
+
+@router.get("/api/cv-proyectos", response_class=HTMLResponse)
+async def cv_proyectos(
+    request: Request, db: Repository_documento = Depends(obtener_db)
+):
+    proyectos = await db.obtener_todos_documentos()
+    return templates.TemplateResponse(
+        request=request,
+        name="cv_proyectos_fragmento.html",
+        context={"proyectos": proyectos or []},
+        headers={"Cache-Control": "public, max-age=30"},
+    )
+
+
 @router.get("/api/obtener-documentos", response_class=HTMLResponse)
 async def obtener_documentos(
     request: Request, db: Repository_documento = Depends(obtener_db)
 ):
-    # traer el dato de la db
-    documentos = await db.obtener_todos_documentos()  # Traer los datos de la db
-    if not documentos: 
+    documentos = await db.obtener_todos_documentos()
+    if not documentos:
         print(f"Documentos obtenidos: {documentos}")
     return templates.TemplateResponse(
         request=request,
         name="documentos_fragmento.html",
         context={"documentos": documentos},
+        headers={"Cache-Control": "public, max-age=30"},
     )
 
 
@@ -55,16 +76,22 @@ async def contenido_md(
 ):
     doc = await db.obtener_documento_por_id(documento_id)
     if not doc or not doc.get("content_md"):
-        return "<p class='text-slate-400 text-center py-8 font-mono'>— Sin contenido disponible —</p>"
+        return HTMLResponse(
+            "<p class='text-slate-400 text-center py-8 font-mono'>— Sin contenido disponible —</p>",
+            headers={"Cache-Control": "public, max-age=120"},
+        )
 
     html = md_convertir(
         doc["content_md"],
         extensions=["fenced_code", "codehilite"],
     )
     titulo = doc["titulo"]
-    return f"""
+    return HTMLResponse(
+        f"""
 <h2 class="text-xl font-bold text-slate-100 font-mono mb-4 tracking-tight">{titulo}</h2>
 <div class="markdown-body text-sm leading-relaxed">
     {html}
 </div>
-"""
+""",
+        headers={"Cache-Control": "public, max-age=120"},
+    )

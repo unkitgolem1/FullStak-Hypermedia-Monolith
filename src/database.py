@@ -1,17 +1,42 @@
 from typing import List, Any, Dict, Protocol
 import asyncpg
 import ssl
+import time
+
+
+class CacheTTL:
+    def __init__(self, ttl_segundos: int = 60):
+        self._cache: dict = {}
+        self._ttl = ttl_segundos
+
+    def obtener(self, clave: str):
+        if clave in self._cache:
+            expira, valor = self._cache[clave]
+            if time.time() < expira:
+                return valor
+            del self._cache[clave]
+        return None
+
+    def guardar(self, clave: str, valor):
+        self._cache[clave] = (time.time() + self._ttl, valor)
+
+    def limpiar(self):
+        self._cache.clear()
 
 
 class Repository_documento(Protocol):
     async def obtener_todos_documentos(self) -> List[Dict[str, Any]]: ...
-    async def obtener_documento_por_id(self, documento_id: int) -> Dict[str, Any] | None: ...
+    async def obtener_documento_por_id(
+        self, documento_id: int
+    ) -> Dict[str, Any] | None: ...
 
 
 class SupabaseAdaptador:
     def __init__(self, db_url: str):
         self.db_url = db_url
         self.pool = None
+        self.cache_todos = CacheTTL(ttl_segundos=30)
+        self.cache_individual = CacheTTL(ttl_segundos=120)
 
     async def conectar(self):
         """Inicializa el pool de conexiones con cifrado TLS/SSL requerido por Supabase."""
@@ -47,37 +72,39 @@ class SupabaseAdaptador:
             print("Nada se cerro, no habia nada abierto")
 
     async def obtener_todos_documentos(self) -> List[Dict[str, Any]]:
-        """
-        Adquiere una conexión del pool, consulta la tabla 'documentos'
-        y formatea el resultado como una lista de diccionarios.
-        """
-        # 1. Validamos de seguridad: que el pool exista antes de consultar
+        cached = self.cache_todos.obtener("todos")
+        if cached is not None:
+            return cached
+
         if not self.pool:
             raise RuntimeError(
                 "Error: El pool de base de datos no ha sido inicializado. Ejecuta connect() primero."
             )
 
-        # 2. Tomamos prestada una conexión del pool (usar 'async with' la devuelve automáticamente al terminar)
         async with self.pool.acquire() as conexion:
             try:
-                # 3. Ejecutamos la consulta. Traemos todos los campos, ordenados por los más recientes.
                 query = """
                     SELECT id, titulo, descripcion, imagen, content_md, fecha_creacion 
                     FROM documentos 
                     ORDER BY fecha_creacion DESC;
                 """
-                # fetch retorna una lista de objetos 'asyncpg.Record'
                 registros = await conexion.fetch(query)
-
-                # 4. Convertimos los Records nativos de asyncpg a diccionarios de Python
-                return [dict(registro) for registro in registros]
+                resultado = [dict(registro) for registro in registros]
+                self.cache_todos.guardar("todos", resultado)
+                return resultado
 
             except Exception as e:
                 print(f"❌ Error al consultar los documentos: {e}")
-                # Dependiendo de tu manejo de errores, puedes lanzar la excepción o devolver lista vacía
                 raise e
 
-    async def obtener_documento_por_id(self, documento_id: int) -> Dict[str, Any] | None:
+    async def obtener_documento_por_id(
+        self, documento_id: int
+    ) -> Dict[str, Any] | None:
+        clave = f"doc:{documento_id}"
+        cached = self.cache_individual.obtener(clave)
+        if cached is not None:
+            return cached
+
         if not self.pool:
             raise RuntimeError(
                 "Error: El pool de base de datos no ha sido inicializado. Ejecuta connect() primero."
@@ -90,7 +117,10 @@ class SupabaseAdaptador:
                     WHERE id = $1;
                 """
                 registro = await conexion.fetchrow(query, documento_id)
-                return dict(registro) if registro else None
+                resultado = dict(registro) if registro else None
+                if resultado:
+                    self.cache_individual.guardar(clave, resultado)
+                return resultado
             except Exception as e:
                 print(f"❌ Error al consultar el documento {documento_id}: {e}")
                 raise e

@@ -1,0 +1,19 @@
+{% if proyectos %}
+<ul class="space-y-1">
+    {% for proy in proyectos %}
+    <li>
+        <a href="/api/contenido-md/{{ proy.id }}"
+           hx-get="/api/contenido-md/{{ proy.id }}"
+           hx-target="#modal-body"
+           hx-swap="innerHTML"
+           onclick="event.preventDefault(); window.abrirModal();"
+           class="flex justify-between items-center py-2 px-3 -mx-3 rounded-lg hover:bg-white/5 transition-colors text-sm cursor-pointer">
+            <span class="text-slate-300">{{ proy.titulo }}</span>
+            <span class="text-slate-500 text-xs font-mono">{{ proy.fecha_creacion[:4] if proy.fecha_creacion else "" }}</span>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p class="text-slate-500 text-sm font-mono text-center py-4">— Sin proyectos —</p>
+{% endif %}

@@ -1,3 +1,5 @@
+{% if documentos %}
+<div class="w-full flex flex-wrap justify-center gap-6">
 {% for doc in documentos %}
 <div class="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.33%-16px)] lg:w-[calc(25%-18px)] xl:w-72 p-4 sm:p-6 rounded-2xl flex flex-col justify-between transition-all duration-300 hover:-translate-y-1
             bg-[#151f32]
@@ -42,3 +44,7 @@
 
 </div>
 {% endfor %}
+</div>
+{% else %}
+<p class="text-slate-400 text-center py-8 font-mono">— Sin proyectos disponibles —</p>
+{% endif %}

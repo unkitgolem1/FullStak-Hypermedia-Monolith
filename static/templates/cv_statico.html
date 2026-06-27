@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel Marín Estrada · Systems · Architecture · AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&family=Merriweather:wght@300;400;900&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --fib-1: .618rem;
+  --fib-2: 1rem;
+  --fib-3: 1.618rem;
+  --fib-5: 2.618rem;
+  --bg: #0f172a;
+  --glass: rgba(255,255,255,.05);
+  --glass-border: rgba(255,255,255,.08);
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --accent: #6EB453;
+  --accent2: #0E694F;
+  --accent3: #CA402A;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.7;
+}
+
+.cv-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 3fr 5fr;
+  gap: 1.25rem;
+  align-content: start;
+}
+
+.card {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 1.25rem;
+  padding: var(--fib-3);
+}
+
+.span-2 { grid-column: 1 / -1; }
+.col-1  { grid-column: 1 / 2; }
+.col-2  { grid-column: 2 / 3; }
+
+/* Header */
+.header-card {
+  font-family: 'Merriweather', serif;
+  padding: calc(var(--fib-3) * 1.6);
+  border-color: rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 2rem;
+}
+.header-card h1 {
+  font-size: var(--fib-5);
+  font-weight: 900;
+  letter-spacing: -.02em;
+  line-height: 1.15;
+}
+.header-card .tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fib-2);
+  opacity: .65;
+  margin-top: var(--fib-1);
+  font-weight: 400;
+}
+.header-card .mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--fib-1);
+  opacity: .45;
+  margin-top: var(--fib-1);
+}
+.header-right {
+  text-align: right;
+}
+.header-right .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: calc(var(--fib-1) * .85);
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  opacity: .4;
+  margin-bottom: var(--fib-1);
+}
+.header-right .website {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fib-2);
+  color: var(--accent);
+}
+
+/* Typography */
+.card h2 {
+  font-family: 'Merriweather', serif;
+  font-size: calc(var(--fib-2) * 1.15);
+  font-weight: 400;
+  margin-bottom: var(--fib-2);
+  letter-spacing: -.01em;
+  color: var(--text);
+}
+.card h2 .accent {
+  color: var(--accent);
+}
+.card h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fib-2);
+  font-weight: 700;
+  margin-bottom: var(--fib-1);
+  color: var(--text);
+}
+.card p {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fib-2);
+  line-height: 1.75;
+  opacity: .82;
+}
+.card p + p { margin-top: var(--fib-1); }
+.card .muted { opacity: .55; font-size: calc(var(--fib-2) * .9); }
+.card strong { opacity: 1; }
+.card a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s;
+}
+.card a:hover { border-color: var(--accent); }
+
+/* Tech tags */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5rem, auto));
+  gap: .5rem;
+  margin-top: var(--fib-1);
+}
+.tech-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: calc(var(--fib-1) * .9);
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: .5rem;
+  padding: .35rem .75rem;
+  opacity: .8;
+  letter-spacing: -.02em;
+}
+.tech-tag.highlight {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(110,180,83,.08);
+}
+
+/* CV list */
+.cv-list {
+  list-style: none;
+  margin-top: var(--fib-1);
+}
+.cv-list li {
+  padding: .4rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.04);
+}
+.cv-list li:last-child { border-bottom: none; }
+.cv-list a {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fib-2);
+  color: var(--muted);
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  transition: color .2s;
+}
+.cv-list a:hover { color: var(--text); }
+.cv-list .role {
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+}
+.cv-list .company {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: calc(var(--fib-1) * .9);
+  opacity: .5;
+  text-align: right;
+}
+
+/* Skill clusters */
+.skill-cluster { margin-top: var(--fib-2); }
+.skill-cluster .cluster-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: calc(var(--fib-1) * .85);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  opacity: .45;
+  margin-bottom: var(--fib-1);
+}
+.skill-cluster .cluster-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5rem, auto));
+  gap: .4rem;
+}
+
+/* Sub-grids */
+.inner-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--fib-2);
+  margin-top: var(--fib-1);
+}
+.inner-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: .75rem;
+  padding: var(--fib-2);
+}
+.inner-card .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: calc(var(--fib-1) * .8);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  opacity: .45;
+  margin-bottom: var(--fib-1);
+}
+.inner-card p:last-child {
+  font-size: var(--fib-2);
+  opacity: .8;
+}
+
+/* Footer */
+.footer-card {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: calc(var(--fib-1) * .85);
+  opacity: .3;
+  letter-spacing: .05em;
+  padding: var(--fib-3);
+  background: transparent;
+  backdrop-filter: none;
+  border: none;
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-radius: 0;
+}
+
+@media (max-width: 700px) {
+  .cv-wrap {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .span-2, .col-1, .col-2 { grid-column: 1; }
+  .header-card { grid-template-columns: 1fr; gap: 1rem; }
+  .header-right { text-align: left; }
+  .inner-grid-2 { grid-template-columns: 1fr; }
+}
+  </style>
+</head>
+<body>
+  <div class="cv-wrap">
+
+    <!-- Header -->
+    <div class="header-card span-2 card">
+      <div>
+        <h1>Daniel Marín Estrada</h1>
+        <p class="tagline">Systems · Architecture · AI · Security</p>
+        <p class="mono">IT &amp; Cybersecurity &mdash; Entrepreneur &mdash; Neovim</p>
+      </div>
+      <div class="header-right">
+        <p class="label">En línea</p>
+        <p class="website">danielmariestrada.xyz</p>
+      </div>
+    </div>
+
+    <!-- About -->
+    <div class="card span-2">
+      <h2>Quién soy</h2>
+      <p>Construyo sistemas desde cero. Estudié <strong>TIC y Ciberseguridad</strong> y aplico <strong>Clean Architecture, DDD</strong> y pruebas automatizadas en todo lo que hago. Stack principal: <strong>Python, PostgreSQL, HTMX, TailwindCSS</strong>. Pero más que el stack: creo en <strong>sistemas con propósito</strong> — que resuelven problemas reales y envejecen bien.</p>
+    </div>
+
+    <!-- Roles -->
+    <div class="card col-1">
+      <h2>Rol <span class="accent">·</span> Empresa</h2>
+      <ul class="cv-list">
+        <li><a href="CV-IngenieroQA-A1QA.html"><span class="role">QA Engineer</span><span class="company">A1QA</span></a></li>
+        <li><a href="CV-ProgramadorWeb-INTECFRA.html"><span class="role">Programador Web</span><span class="company">INTECFRA</span></a></li>
+        <li><a href="CV-AIEngineer-CigoTracker.html"><span class="role">AI Software Engineer</span><span class="company">Cigo Tracker</span></a></li>
+        <li><a href="CV-AsesorComercial-MetLife.html"><span class="role">Asesor Comercial Financiero</span><span class="company">MetLife</span></a></li>
+        <li><a href="CV-Automatizacion-DoorFlex.html"><span class="role">Automatización</span><span class="company">DoorFlex LLC</span></a></li>
+        <li><a href="CV-CoordinadorMarketing-GrupoGEA.html"><span class="role">Coordinador Marketing Digital</span><span class="company">Grupo GEA</span></a></li>
+        <li><a href="CV-CreativeAIWebDev-Eclipsyum.html"><span class="role">Creative AI Web Developer</span><span class="company">Eclipsyum</span></a></li>
+        <li><a href="CV-JuniorDev-MyVA.html"><span class="role">Junior Software Developer</span><span class="company">MyVA Support</span></a></li>
+        <li><a href="CV-ResponsableAdministrativo-JerryMedina.html"><span class="role">Responsable Administrativo</span><span class="company">Team Jerry Medina</span></a></li>
+        <li><a href="CV-SoftwareSystemsEngineer-RTLawrence.html"><span class="role">Software Systems Engineer</span><span class="company">RTLawrence</span></a></li>
+        <li><a href="CV-SoporteMejoraContinua-nahnu.html"><span class="role">Soporte y Mejora Continua</span><span class="company">nahnu</span></a></li>
+        <li><a href="CV-UnitTest-Playful.html"><span class="role">Desarrollador UnitTest</span><span class="company">Playful</span></a></li>
+      </ul>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="card col-2">
+      <h2>Stack técnico</h2>
+      <div class="skill-cluster">
+        <p class="cluster-label">Core</p>
+        <div class="cluster-grid">
+          <span class="tech-tag highlight">Python</span>
+          <span class="tech-tag highlight">PostgreSQL</span>
+          <span class="tech-tag highlight">HTMX</span>
+          <span class="tech-tag highlight">TailwindCSS</span>
+          <span class="tech-tag">SQL</span>
+          <span class="tech-tag">REST APIs</span>
+          <span class="tech-tag">Webhooks</span>
+        </div>
+      </div>
+      <div class="skill-cluster">
+        <p class="cluster-label">Testing</p>
+        <div class="cluster-grid">
+          <span class="tech-tag">pytest</span>
+          <span class="tech-tag">Playwright</span>
+          <span class="tech-tag">Selenium</span>
+          <span class="tech-tag">Unitarias</span>
+          <span class="tech-tag">Integración</span>
+          <span class="tech-tag">E2E</span>
+          <span class="tech-tag">CI/CD</span>
+        </div>
+      </div>
+      <div class="skill-cluster">
+        <p class="cluster-label">Infra &amp; Datos</p>
+        <div class="cluster-grid">
+          <span class="tech-tag">Migraciones</span>
+          <span class="tech-tag">Constraints</span>
+          <span class="tech-tag">Cloud</span>
+          <span class="tech-tag">On-premise</span>
+          <span class="tech-tag">Secrets Mgmt</span>
+        </div>
+      </div>
+      <div class="skill-cluster">
+        <p class="cluster-label">Herramientas</p>
+        <div class="cluster-grid">
+          <span class="tech-tag">Neovim</span>
+          <span class="tech-tag">Linux</span>
+          <span class="tech-tag">Git</span>
+          <span class="tech-tag">CI/CD</span>
+          <span class="tech-tag">Docker</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Methodologies -->
+    <div class="card span-2">
+      <h2>Arquitectura y metodología</h2>
+      <div class="inner-grid-2">
+        <div class="inner-card">
+          <p class="label">Patrones</p>
+          <p>Clean Architecture · DDD · Repository Pattern · Dependency Inversion · Capas</p>
+        </div>
+        <div class="inner-card">
+          <p class="label">Calidad</p>
+          <p>Unitarias · Integración · E2E · Fixtures · Mocks · Evaluation harnesses · Benchmarks</p>
+        </div>
+        <div class="inner-card">
+          <p class="label">Documentación</p>
+          <p>Arc42 · C4 Model · Diagramas de arquitectura · Documentación viva</p>
+        </div>
+        <div class="inner-card">
+          <p class="label">Web</p>
+          <p>Core Web Vitals · Structured Data · SEO · Performance · Lazy loading · Caching</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- More skills + Soft Skills -->
+    <div class="card col-1">
+      <h2>Más tecnologías</h2>
+      <div class="tech-grid" style="margin-top:0;grid-template-columns:repeat(auto-fill,minmax(4.5rem,auto))">
+        <span class="tech-tag">TypeScript</span>
+        <span class="tech-tag">React</span>
+        <span class="tech-tag">Node.js</span>
+        <span class="tech-tag">PHP</span>
+        <span class="tech-tag">Java</span>
+        <span class="tech-tag">JUnit</span>
+        <span class="tech-tag">Jest</span>
+        <span class="tech-tag">Cypress</span>
+        <span class="tech-tag">Vitest</span>
+        <span class="tech-tag">WordPress</span>
+        <span class="tech-tag">Shopify</span>
+        <span class="tech-tag">Webflow</span>
+        <span class="tech-tag">Joomla</span>
+        <span class="tech-tag">jQuery</span>
+        <span class="tech-tag">MySQL</span>
+        <span class="tech-tag">Zapier</span>
+        <span class="tech-tag">Make</span>
+      </div>
+    </div>
+
+    <!-- Soft skills -->
+    <div class="card col-2">
+      <h2>Forma de trabajar</h2>
+      <p>No creo en el código por el código. Creo en <strong>sistemas con propósito</strong>. Antes de escribir una línea diseño la estructura: <strong>capas, flujos, validación</strong>. Pruebas no son un lujo — son la única forma de dormir tranquilo.</p>
+      <p class="muted" style="margin-top:var(--fib-2)">Lo que me define: escuchar, entender la necesidad, proponer una solución, dar seguimiento. <strong>No vendo por vender. Escucho, entiendo, resuelvo.</strong></p>
+      <div class="tech-grid">
+        <span class="tech-tag" style="border-color:rgba(110,180,83,.3);color:var(--accent)">Resolución de problemas</span>
+        <span class="tech-tag" style="border-color:rgba(110,180,83,.3);color:var(--accent)">Pensamiento estructurado</span>
+        <span class="tech-tag" style="border-color:rgba(110,180,83,.3);color:var(--accent)">Aprendizaje rápido</span>
+        <span class="tech-tag" style="border-color:rgba(110,180,83,.3);color:var(--accent)">Ejecución</span>
+      </div>
+    </div>
+
+    <!-- Cierre -->
+    <div class="card span-2">
+      <h2>Una última cosa</h2>
+      <p class="card" style="font-family:'Merriweather',serif;font-style:italic;font-weight:300;font-size:calc(var(--fib-2)*1.1);opacity:.55;line-height:1.6;margin-bottom:var(--fib-2);background:transparent;border:none;padding:0">
+        "El que domina el agua no lucha contra la corriente — la usa para llegar más lejos."
+      </p>
+      <p>No importa el rol ni la empresa. El principio es el mismo: <strong>entender el problema, diseñar la solución, ejecutar con excelencia</strong>. Mi stack cambia según lo que el problema necesita. Lo que no cambia es <strong>cómo pienso, cómo estructuro y cómo entrego</strong>.</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-card">danielmariestrada.xyz</div>
+
+  </div>
+</body>
+</html>

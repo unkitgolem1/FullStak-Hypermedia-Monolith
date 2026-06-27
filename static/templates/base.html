@@ -156,6 +156,44 @@
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') window.cerrarModal();
     });
+
+    // ─── Caché cliente para respuestas htmx ─────────────────────────
+    (function() {
+        const cache = new Map();
+        const TTL = 5 * 60 * 1000; // 5 minutos
+
+        document.addEventListener('htmx:afterSettle', function(evt) {
+            const el = evt.detail.elt;
+            const url = el.getAttribute('hx-get');
+            if (!url) return;
+            const selector = el.getAttribute('hx-target');
+            if (!selector) return;
+            const target = document.querySelector(selector);
+            if (!target) return;
+            cache.set(url, {
+                html: target.innerHTML,
+                expira: Date.now() + TTL
+            });
+        });
+
+        document.addEventListener('htmx:beforeRequest', function(evt) {
+            const el = evt.detail.elt;
+            const url = el.getAttribute('hx-get');
+            if (!url) return;
+            const cached = cache.get(url);
+            if (!cached || Date.now() > cached.expira) {
+                cache.delete(url);
+                return;
+            }
+            evt.preventDefault();
+            const selector = el.getAttribute('hx-target');
+            if (!selector) return;
+            const target = document.querySelector(selector);
+            if (target) {
+                target.innerHTML = cached.html;
+            }
+        });
+    })();
 </script>
 </body>
 </html>

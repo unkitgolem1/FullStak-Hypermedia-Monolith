@@ -12,25 +12,48 @@
         </div>
 
         <div id="wrapper" class="relative flex-grow flex flex-col items-center justify-center p-6 md:p-8">
-            
-            <button 
-                hx-get="/api/obtener-documentos" 
-                hx-target="#contenedor-cartas" 
-                hx-swap="innerHTML"
-                onclick="this.style.display='none'; document.getElementById('instruccion').style.display='none';"
-                class="px-8 py-4 border border-red-500/50 rounded-full font-black uppercase tracking-[0.2em] animate-pulse transition-all duration-300 
-                bg-red-950/30 
-                hover:bg-red-600 hover:shadow-[0_0_20px_rgba(220,38,38,0.5)] 
-                shadow-[2px_2px_5px_rgba(0,0,0,0.3),-1px_-1px_3px_rgba(255,255,255,0.1)] 
-                text-red-100 text-xs md:text-sm tracking-widest">
-                CONSULTAR
+
+            <button id="btn-volver" onclick="document.getElementById('btn-volver').style.display='none'; document.getElementById('btn-group').style.display='flex'; document.getElementById('contenedor-cartas').innerHTML=''"
+                class="mb-6 px-5 py-2.5 rounded-xl text-slate-300 font-mono text-xs font-black uppercase tracking-widest transition-all duration-150
+                bg-[#1a263d]/50 border border-white/5
+                shadow-[3px_3px_6px_rgba(0,0,0,0.4),-2px_-2px_6px_rgba(255,255,255,0.02)]
+                hover:bg-[#1e2c46]/70 hover:text-white active:scale-[0.98]" style="display:none">
+                ← VOLVER
             </button>
-
-
-
-            <p id="instruccion" class="mt-6 text-slate-400 font-mono text-[11px] tracking-wider animate-bounce text-center">
-                &gt; Presiona. Los proyectos fluyen.
-            </p>
+            
+            <div id="btn-group" class="flex flex-col items-center gap-4">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button 
+                        hx-get="/api/obtener-documentos" 
+                        hx-target="#contenedor-cartas" 
+                        hx-swap="innerHTML"
+                        hx-push-url="false"
+                        onclick="document.getElementById('btn-group').style.display='none'; document.getElementById('btn-volver').style.display='inline-block'"
+                        class="px-8 py-4 border border-red-500/50 rounded-full font-black uppercase tracking-[0.2em] animate-pulse transition-all duration-300 
+                        bg-red-950/30 
+                        hover:bg-red-600 hover:shadow-[0_0_20px_rgba(220,38,38,0.5)] 
+                        shadow-[2px_2px_5px_rgba(0,0,0,0.3),-1px_-1px_3px_rgba(255,255,255,0.1)] 
+                        text-red-100 text-xs md:text-sm tracking-widest">
+                        PROYECTOS
+                    </button>
+                    <button 
+                        hx-get="/api/cv" 
+                        hx-target="#contenedor-cartas" 
+                        hx-swap="innerHTML"
+                        hx-push-url="false"
+                        onclick="document.getElementById('btn-group').style.display='none'; document.getElementById('btn-volver').style.display='inline-block'"
+                        class="px-8 py-4 border border-emerald-500/50 rounded-full font-black uppercase tracking-[0.2em] animate-pulse transition-all duration-300 
+                        bg-emerald-950/30 
+                        hover:bg-emerald-600 hover:shadow-[0_0_20px_rgba(16,185,129,0.5)] 
+                        shadow-[2px_2px_5px_rgba(0,0,0,0.3),-1px_-1px_3px_rgba(255,255,255,0.1)] 
+                        text-emerald-100 text-xs md:text-sm tracking-widest">
+                        VER CV
+                    </button>
+                </div>
+                <p id="instruccion" class="text-slate-400 font-mono text-[11px] tracking-wider animate-bounce text-center">
+                    &gt; Descargamos esto de la base de datos que integramos con postgres ;)
+                </p>
+            </div>
 
             <div id="contenedor-cartas" class="w-full flex flex-wrap justify-center gap-6 mt-6">
                 </div>
