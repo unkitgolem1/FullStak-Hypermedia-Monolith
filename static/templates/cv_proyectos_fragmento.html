@@ -1,73 +1,32 @@
 {% if proyectos %}
-{% set VISIBLES = 3 %}
-<div id="cascade-wrap" class="relative overflow-hidden">
-    <div class="flex flex-col gap-2" id="cascade-track">
-        {% for proy in proyectos %}
-        <div onclick="this.querySelector('a').click()"
-             class="group cascade-item flex items-center gap-2 px-3 py-2 rounded-xl cursor-pointer transition-all duration-300 w-full
-                    bg-[rgba(255,255,255,0.04)] backdrop-blur-[6px]
-                    border border-[rgba(255,255,255,0.06)]
-                    hover:border-[rgba(255,255,255,0.15)]
-                    shadow-[-3px_-3px_8px_rgba(255,255,255,0.01),4px_4px_12px_rgba(2,6,23,0.4)]
-                    hover:shadow-[0_0_18px_rgba(255,255,255,0.08),0_0_40px_rgba(255,255,255,0.03)]">
+<div class="flex flex-wrap gap-1.5">
+    {% for proy in proyectos %}
+    <div onclick="this.querySelector('a').click()"
+         class="group flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl cursor-pointer transition-all duration-200
+                bg-[rgba(255,255,255,0.04)] hover:bg-[rgba(255,255,255,0.07)]
+                border border-[rgba(255,255,255,0.06)] hover:border-[rgba(255,255,255,0.12)]
+                shadow-[-2px_-2px_6px_rgba(255,255,255,0.01),3px_3px_10px_rgba(2,6,23,0.4)]
+                hover:shadow-[0_0_14px_rgba(255,255,255,0.06)]">
 
-            <a href="/api/contenido-md/{{ proy.id }}"
-               hx-get="/api/contenido-md/{{ proy.id }}"
-               hx-target="#modal-body"
-               hx-swap="innerHTML"
-               onclick="event.preventDefault(); window.abrirModal();"
-               class="absolute inset-0 rounded-xl"></a>
+        <a href="/api/contenido-md/{{ proy.id }}"
+           hx-get="/api/contenido-md/{{ proy.id }}"
+           hx-target="#modal-body"
+           hx-swap="innerHTML"
+           onclick="event.preventDefault(); window.abrirModal();"
+           class="absolute inset-0 rounded-xl"></a>
 
-            {% if proy.imagen %}
-            <img src="{{ proy.imagen }}" alt="{{ proy.titulo }}"
-                 class="w-6 h-6 rounded object-cover shrink-0 ring-1 ring-white/10 group-hover:ring-white/20 transition-all"
-                 loading="lazy" />
-            {% endif %}
+        {% if proy.imagen %}
+        <img src="{{ proy.imagen }}" alt="{{ proy.titulo }}"
+             class="w-5 h-5 rounded object-cover shrink-0 ring-1 ring-white/10"
+             loading="lazy" />
+        {% endif %}
 
-            <span class="text-[11px] font-mono text-slate-300 font-semibold truncate group-hover:text-white transition-colors min-w-0">
-                {{ proy.titulo }}
-            </span>
-        </div>
-        {% endfor %}
+        <span class="text-[11px] font-mono text-slate-300 font-medium truncate max-w-[140px] group-hover:text-white transition-colors">
+            {{ proy.titulo }}
+        </span>
     </div>
+    {% endfor %}
 </div>
-
-<script>
-(function() {
-    var wrap = document.getElementById('cascade-wrap');
-    var track = document.getElementById('cascade-track');
-    if (!wrap || !track) return;
-    var items = track.querySelectorAll('.cascade-item');
-    if (items.length === 0) return;
-
-    var VISIBLES = 3;
-    var h = items[0].offsetHeight + 8;
-    wrap.style.height = (VISIBLES * h) + 'px';
-
-    if (items.length <= VISIBLES) return;
-
-    for (var i = 0; i < VISIBLES; i++) {
-        track.appendChild(items[i].cloneNode(true));
-    }
-
-    var idx = 0;
-    var origCount = items.length;
-
-    setInterval(function() {
-        idx++;
-        track.style.transition = 'transform 0.6s cubic-bezier(0.4,0,0.2,1)';
-        track.style.transform = 'translateY(-' + (idx * h) + 'px)';
-
-        if (idx >= origCount) {
-            setTimeout(function() {
-                track.style.transition = 'none';
-                track.style.transform = 'translateY(0)';
-                idx = 0;
-            }, 650);
-        }
-    }, 3500);
-})();
-</script>
 {% else %}
 <p class="text-slate-500 text-sm font-mono text-center py-4">— Sin proyectos —</p>
 {% endif %}
