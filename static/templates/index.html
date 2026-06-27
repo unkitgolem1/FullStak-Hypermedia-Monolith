@@ -13,7 +13,7 @@
 
         <div id="wrapper" class="relative flex-grow flex flex-col items-center justify-center p-6 md:p-8">
 
-            <button id="btn-volver" onclick="document.getElementById('btn-volver').style.display='none'; document.getElementById('btn-group').style.display='flex'; document.getElementById('contenedor-cartas').innerHTML=''"
+            <button id="btn-volver" onclick="document.getElementById('btn-volver').style.display='none'; document.getElementById('btn-group').style.display='flex'; document.getElementById('contenedor-cartas').innerHTML=''; document.querySelectorAll('[hx-get]').forEach(function(e){htmx.trigger(e,'htmx:abort')})"
                 class="mb-6 px-5 py-2.5 rounded-xl text-slate-300 font-mono text-xs font-black uppercase tracking-widest transition-all duration-150
                 bg-[#1a263d]/50 border border-white/5
                 shadow-[3px_3px_6px_rgba(0,0,0,0.4),-2px_-2px_6px_rgba(255,255,255,0.02)]
