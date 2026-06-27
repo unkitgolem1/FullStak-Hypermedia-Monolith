@@ -4,6 +4,11 @@ Uso:  fastapi dev tests/run_dev.py
       python tests/run_dev.py
 """
 
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
+
 import uvicorn
 from fastapi import FastAPI
 from routes import router

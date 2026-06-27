@@ -1,19 +1,31 @@
 {% if proyectos %}
-<ul class="space-y-1">
+<div class="grid grid-cols-1 gap-3">
     {% for proy in proyectos %}
-    <li>
+    <div onclick="this.querySelector('a').click()"
+         class="relative p-3 rounded-xl cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]
+                bg-[rgba(255,255,255,0.04)] backdrop-blur-[8px]
+                border border-[rgba(255,255,255,0.06)]
+                shadow-[-4px_-4px_12px_rgba(255,255,255,0.015),6px_6px_16px_rgba(2,6,23,0.5)]">
+
         <a href="/api/contenido-md/{{ proy.id }}"
            hx-get="/api/contenido-md/{{ proy.id }}"
            hx-target="#modal-body"
            hx-swap="innerHTML"
            onclick="event.preventDefault(); window.abrirModal();"
-           class="flex justify-between items-center py-2 px-3 -mx-3 rounded-lg hover:bg-white/5 transition-colors text-sm cursor-pointer">
-            <span class="text-slate-300">{{ proy.titulo }}</span>
-            <span class="text-slate-500 text-xs font-mono">{{ proy.fecha_creacion[:4] if proy.fecha_creacion else "" }}</span>
-        </a>
-    </li>
+           class="block"></a>
+
+        {% if proy.imagen %}
+        <img src="{{ proy.imagen }}" alt="{{ proy.titulo }}"
+             class="w-full aspect-[2/1] object-cover rounded-lg mb-2"
+             loading="lazy" />
+        {% endif %}
+
+        <span class="block text-xs font-mono text-slate-300 font-bold tracking-tight leading-tight">
+            {{ proy.titulo }}
+        </span>
+    </div>
     {% endfor %}
-</ul>
+</div>
 {% else %}
 <p class="text-slate-500 text-sm font-mono text-center py-4">— Sin proyectos —</p>
 {% endif %}
