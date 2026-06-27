@@ -21,20 +21,23 @@
                 ← VOLVER
             </button>
             
-            <div id="btn-group" class="flex flex-col items-center gap-4">
-                <div class="flex flex-wrap justify-center gap-4">
+            <div id="btn-group" class="flex flex-col items-center gap-5 w-full max-w-md mx-auto">
+                <div class="flex flex-col gap-4 w-full">
                     <button 
                         hx-get="/api/obtener-documentos" 
                         hx-target="#contenedor-cartas" 
                         hx-swap="innerHTML"
                         hx-push-url="false"
                         onclick="document.getElementById('btn-group').style.display='none'; document.getElementById('btn-volver').style.display='inline-block'"
-                        class="px-8 py-4 border border-red-500/50 rounded-full font-black uppercase tracking-[0.2em] animate-pulse transition-all duration-300 
-                        bg-red-950/30 
-                        hover:bg-red-600 hover:shadow-[0_0_20px_rgba(220,38,38,0.5)] 
-                        shadow-[2px_2px_5px_rgba(0,0,0,0.3),-1px_-1px_3px_rgba(255,255,255,0.1)] 
-                        text-red-100 text-xs md:text-sm tracking-widest">
-                        PROYECTOS
+                        class="w-full px-6 py-5 text-left font-black uppercase tracking-[0.15em] transition-all duration-300 
+                        bg-[rgba(220,38,38,0.06)] hover:bg-[rgba(220,38,38,0.12)]
+                        border-2 border-red-500/30 hover:border-red-500/70
+                        shadow-[4px_4px_0_rgba(220,38,38,0.3)] hover:shadow-[6px_6px_0_rgba(220,38,38,0.5)]
+                        active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_rgba(220,38,38,0.3)]
+                        text-red-100 text-xs md:text-sm rounded-none"
+                        style="image-rendering:pixelated; font-family:'Press Start 2P',monospace;">
+                        <span class="block text-[9px] md:text-[10px] tracking-[0.3em] text-red-400/60 mb-1">&gt; cd /proyectos</span>
+                        <span class="block">PROYECTOS</span>
                     </button>
                     <button 
                         hx-get="/api/cv" 
@@ -42,16 +45,19 @@
                         hx-swap="innerHTML"
                         hx-push-url="false"
                         onclick="document.getElementById('btn-group').style.display='none'; document.getElementById('btn-volver').style.display='inline-block'"
-                        class="px-8 py-4 border border-emerald-500/50 rounded-full font-black uppercase tracking-[0.2em] animate-pulse transition-all duration-300 
-                        bg-emerald-950/30 
-                        hover:bg-emerald-600 hover:shadow-[0_0_20px_rgba(16,185,129,0.5)] 
-                        shadow-[2px_2px_5px_rgba(0,0,0,0.3),-1px_-1px_3px_rgba(255,255,255,0.1)] 
-                        text-emerald-100 text-xs md:text-sm tracking-widest">
-                        VER CV
+                        class="w-full px-6 py-5 text-left font-black uppercase tracking-[0.15em] transition-all duration-300 
+                        bg-[rgba(16,185,129,0.06)] hover:bg-[rgba(16,185,129,0.12)]
+                        border-2 border-emerald-500/30 hover:border-emerald-500/70
+                        shadow-[4px_4px_0_rgba(16,185,129,0.3)] hover:shadow-[6px_6px_0_rgba(16,185,129,0.5)]
+                        active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_rgba(16,185,129,0.3)]
+                        text-emerald-100 text-xs md:text-sm rounded-none"
+                        style="image-rendering:pixelated; font-family:'Press Start 2P',monospace;">
+                        <span class="block text-[9px] md:text-[10px] tracking-[0.3em] text-emerald-400/60 mb-1">&gt; cat cv.html</span>
+                        <span class="block">VER CV</span>
                     </button>
                 </div>
-                <p id="instruccion" class="text-slate-400 font-mono text-[11px] tracking-wider animate-bounce text-center">
-                    &gt; Descargamos esto de la base de datos que integramos con postgres ;)
+                <p id="instruccion" class="text-slate-500 font-mono text-[10px] tracking-wider animate-bounce text-center" style="font-family:'Press Start 2P',monospace;">
+                    &gt; next: haz clic en algo o presiona Ctrl+C para salir_
                 </p>
             </div>
 

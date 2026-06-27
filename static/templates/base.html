@@ -9,9 +9,52 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         body { background-color: #0f172a; color: white; font-family: 'Outfit', sans-serif; }
-        
-        /* Renderizado nítido de píxeles */
-        .pixel-text-shadow { image-rendering: pixelated; }
+
+        /* ── Estrellas de fondo ── */
+        #stars {
+            position: fixed; inset: 0; pointer-events: none; z-index: 0;
+            overflow: hidden;
+        }
+        #stars::before, #stars::after {
+            content: ''; position: absolute;
+            width: 2px; height: 2px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+        }
+        #stars::before {
+            box-shadow:
+                4vw 8vh 0 0 rgba(255,255,255,0.25), 12vw 3vh 0 0 rgba(255,255,255,0.15),
+                22vw 15vh 0 0 rgba(255,255,255,0.2), 35vw 5vh 0 0 rgba(255,255,255,0.1),
+                48vw 25vh 0 0 rgba(255,255,255,0.3), 55vw 10vh 0 0 rgba(255,255,255,0.15),
+                68vw 30vh 0 0 rgba(255,255,255,0.2), 75vw 18vh 0 0 rgba(255,255,255,0.1),
+                82vw 40vh 0 0 rgba(255,255,255,0.25), 90vw 12vh 0 0 rgba(255,255,255,0.15),
+                7vw  45vh 0 0 rgba(255,255,255,0.2),  18vw 55vh 0 0 rgba(255,255,255,0.1),
+                28vw 65vh 0 0 rgba(255,255,255,0.15), 38vw 75vh 0 0 rgba(255,255,255,0.25),
+                50vw 50vh 0 0 rgba(255,255,255,0.1),  60vw 70vh 0 0 rgba(255,255,255,0.2),
+                72vw 85vh 0 0 rgba(255,255,255,0.15), 85vw 60vh 0 0 rgba(255,255,255,0.1),
+                92vw 90vh 0 0 rgba(255,255,255,0.2),  15vw 78vh 0 0 rgba(255,255,255,0.15),
+                42vw 92vh 0 0 rgba(255,255,255,0.1),  65vw 43vh 0 0 rgba(255,255,255,0.25),
+                78vw 22vh 0 0 rgba(255,255,255,0.15), 95vw 35vh 0 0 rgba(255,255,255,0.1),
+                3vw  33vh 0 0 rgba(255,255,255,0.2),  25vw 70vh 0 0 rgba(255,255,255,0.15);
+            animation: titilar 6s ease-in-out infinite alternate;
+        }
+        #stars::after {
+            width: 1px; height: 1px;
+            background: rgba(255,255,255,0.2);
+            box-shadow:
+                8vw 13vh 0 0, 20vw 28vh 0 0, 32vw 8vh 0 0, 45vw 35vh 0 0,
+                58vw 15vh 0 0, 70vw 48vh 0 0, 80vw 5vh 0 0,  88vw 55vh 0 0,
+                5vw  60vh 0 0, 16vw 72vh 0 0, 30vw 42vh 0 0, 40vw 80vh 0 0,
+                52vw 62vh 0 0, 63vw 88vh 0 0, 76vw 52vh 0 0, 86vw 38vh 0 0,
+                95vw 70vh 0 0, 10vw 90vh 0 0, 22vw 48vh 0 0, 48vw 95vh 0 0,
+                55vw 12vh 0 0, 72vw 75vh 0 0, 82vw 65vh 0 0, 92vw 82vh 0 0,
+                36vw 18vh 0 0, 68vw 95vh 0 0, 44vw 68vh 0 0, 74vw 34vh 0 0;
+            animation: titilar 8s ease-in-out infinite alternate-reverse;
+        }
+        @keyframes titilar {
+            0%   { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
 
         @keyframes slideInOut {
             0% { transform: translateY(100%); opacity: 0; }
@@ -103,7 +146,9 @@
     </style>
 </head>
 <body>
-    <header id="hero" class="h-screen flex flex-col items-center justify-center relative">
+    <div id="stars"></div>
+
+    <header id="hero" class="h-screen flex flex-col items-center justify-center relative" style="z-index:1;">
         <h1 class="text-3xl md:text-5xl tracking-tight flex flex-wrap justify-center overflow-hidden cursor-default pixel-text-shadow" 
             style="font-family: 'Press Start 2P', cursive;">
         <span class="inline-block animate-[slideInOut_4s_ease_infinite_alternate] opacity-0" style="animation-delay: 0s; color: #CA402A;">D</span>
@@ -133,7 +178,7 @@
 
     </header>
 
-    <main id="proyectos" class="min-h-screen flex flex-col items-center justify-center py-20 px-4">
+    <main id="proyectos" class="min-h-screen flex flex-col items-center justify-center py-20 px-4 relative" style="z-index:1;">
         {% block content %}{% endblock %}
     </main>
 <div id="modal-contenido" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4" onclick="if(event.target===this) window.cerrarModal()">
