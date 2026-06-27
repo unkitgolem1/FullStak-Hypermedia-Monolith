@@ -33,10 +33,10 @@ async def principal_route(request: Request):
 
 
 @router.get("/api/cv", response_class=HTMLResponse)
-async def cv_fragmento(request: Request):
+async def cv_index(request: Request):
     return templates.TemplateResponse(
         request=request,
-        name="cv_fragmento.html",
+        name="cv_index.html",
     )
 
 
