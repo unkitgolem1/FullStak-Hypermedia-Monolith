@@ -190,6 +190,26 @@
     <main id="proyectos" class="min-h-screen flex flex-col items-center justify-center py-20 px-4 relative" style="z-index:1;">
         {% block content %}{% endblock %}
     </main>
+
+    <footer id="contacto" class="w-full py-16 px-4 relative scroll-mt-24" style="z-index:1;">
+        <div class="mx-auto max-w-3xl glass-neumo rounded-2xl p-8 md:p-10">
+            <h3 class="text-base md:text-lg font-bold text-slate-100 font-mono mb-6 tracking-tight text-center">¿Construimos algo sólido?</h3>
+            <p class="text-sm text-slate-400 italic leading-relaxed mb-6 text-center" style="font-family:'Georgia',serif;">
+                "El que domina el agua no lucha contra la corriente — la usa para llegar más lejos."
+            </p>
+            <div class="p-4 rounded-xl bg-[#0d1424] border border-black/20 shadow-[inset_4px_4px_8px_rgba(0,0,0,0.5),inset_-2px_-2px_6px_rgba(255,255,255,0.02)] mb-6">
+                <p class="text-sm text-slate-400 leading-relaxed text-center">Mi enfoque es agnóstico a la tecnología, pero obsesivo con la calidad. Si buscas a alguien que tome las riendas de un sistema, garantice su estabilidad y aporte soluciones de arquitectura probadas, estoy listo para conversar.</p>
+            </div>
+            <div class="flex flex-wrap gap-3 justify-center">
+                <a href="#" class="text-xs font-mono px-4 py-2 rounded-lg bg-emerald-950/30 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-950/50 transition-all duration-300">Descargar CV</a>
+                <a href="#" class="text-xs font-mono px-4 py-2 rounded-lg border border-slate-600 text-slate-300 hover:bg-slate-800/50 transition-all duration-300">daniel@email.com</a>
+                <a href="#" class="text-xs font-mono px-4 py-2 rounded-lg border border-slate-600 text-slate-300 hover:bg-slate-800/50 transition-all duration-300">LinkedIn</a>
+                <a href="#" class="text-xs font-mono px-4 py-2 rounded-lg border border-slate-600 text-slate-300 hover:bg-slate-800/50 transition-all duration-300">GitHub</a>
+            </div>
+            <p class="text-xs font-mono text-slate-600 tracking-wider text-center mt-8">danielmariestrada.xyz</p>
+        </div>
+    </footer>
+
 <div id="modal-contenido" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4" onclick="if(event.target===this) window.cerrarModal()">
     <div class="absolute inset-0 bg-black/70 backdrop-blur-md"></div>
     <div class="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto glass-neumo rounded-2xl p-6 md:p-8 z-10">
@@ -249,5 +269,24 @@
         });
     })();
 </script>
+
+<!-- Floating contact bubble -->
+<div id="burbuja-contacto" class="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-1.5">
+    <span class="text-[7px] md:text-[8px] text-slate-500 text-center leading-tight max-w-[40px] md:max-w-[48px]" style="font-family:'Press Start 2P',monospace;">
+        descargar cv
+    </span>
+    <a href="#proyectos" onclick="event.preventDefault(); var el=document.getElementById('contacto'); if(el){el.scrollIntoView({behavior:'smooth'});} return false;"
+       class="w-10 h-10 md:w-12 md:h-12 rounded-full
+              bg-emerald-500/15 border border-emerald-400/30
+              backdrop-blur-md shadow-lg
+              flex items-center justify-center
+              hover:bg-emerald-500/25 hover:border-emerald-400/50
+              active:scale-95 transition-all duration-300
+              no-underline"
+       title="Contacto / Descargar CV">
+        <span class="text-[9px] md:text-[11px] text-emerald-400" style="font-family:'Press Start 2P',monospace;">&lt;/&gt;</span>
+    </a>
+</div>
+
 </body>
 </html>
